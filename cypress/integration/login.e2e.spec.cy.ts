@@ -2,20 +2,16 @@
 
 import { HomePage } from "../pages/homepage.page";
 import { Login } from "../pages/login.page";
+import '@testing-library/cypress/add-commands'
+require('cypress-xpath');
 const sender = new Login()
 const homePage = new HomePage()
-it('Visit to cargolink home page', () => {
-    cy.visit('https://dev.dev.cargolink.vn/')
-});
-it('Move to login by Sender', () => {
-    homePage.clickLogin();
-});
-it('Login by sender successful', () => {
-    sender.clickSenderOpts();
-    sender.clickContinue();
-    sender.typePhoneNumber()
-    sender.clickContinue2()
-    sender.typePassWord()
-    sender.clickSignIn()
-    
-});
+
+describe('Home page screen', () => {
+    it('visit to Cargolink homepage', () => {
+        cy.navigatePage()
+    })
+    it('', () => {
+        
+    });
+})
