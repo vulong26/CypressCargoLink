@@ -11,7 +11,7 @@ describe('Home page screen', () => {
     it('visit to Cargolink homepage', () => {
         cy.navigatePage()
     })
-    it('', () => {
-        
+    it('login', () => {
+        cy.login()
     });
 })
