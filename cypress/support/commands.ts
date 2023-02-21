@@ -5,8 +5,7 @@ require('cypress-xpath');
 const sender = new Login()
 const homePage = new HomePage()
 Cypress.Commands.add('login', () => {
-    cy.navigatePage()
-    homePage.clickLogin();
+    cy.visit('/login');
     sender.clickSenderOpts();
     sender.clickContinue();
     sender.typePhoneNumber()
@@ -14,9 +13,6 @@ Cypress.Commands.add('login', () => {
     sender.typePassWord()
     sender.clickSignIn()
 
-})
-Cypress.Commands.add('navigatePage', () => {
-    cy.visit('https://dev.dev.cargolink.vn/')
 })
 Cypress.Commands.add('clickLink', (label) => {
     cy.get('a').contains(label).click()

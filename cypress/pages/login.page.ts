@@ -16,11 +16,11 @@ export class Login{
     clickContinue(){
         this.elements.continueBtn().first().click();    }
     typePhoneNumber(){
-        cy.fixture('data').then((user) => {
+        cy.fixture('account').then((user) => {
             this.elements.phoneTextBox().type(user.phoneNumber)
         })}
     typePassWord(){
-        cy.fixture('data').then((user) => {
+        cy.fixture('account').then((user) => {
             this.elements.passwordTextBox().type(user.password)
         })}
     clickSignIn(){

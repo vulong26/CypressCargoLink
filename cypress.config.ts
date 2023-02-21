@@ -11,6 +11,9 @@ export default defineConfig({
   // Viewport settings overridden for component tests
   // Command timeout overridden for E2E tests
   e2e: {
+    supportFile: false,
     defaultCommandTimeout: 5000,
+    baseUrl:'https://dev.dev.cargolink.vn',
+    testIsolation: false
   }
 })
