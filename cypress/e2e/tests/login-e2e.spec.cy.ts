@@ -4,8 +4,6 @@ import { Login } from "../../pages/login.page";
 import '@testing-library/cypress/add-commands'
 import '../../support/commands'
 require('cypress-xpath');
-const sender = new Login()
-const homePage = new HomePage()
 
 describe('Login successful', () => {
     it('visit to login page', () => {

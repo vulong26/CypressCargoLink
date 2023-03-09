@@ -14,6 +14,7 @@ export default defineConfig({
     supportFile: false,
     defaultCommandTimeout: 5000,
     baseUrl:'https://dev.dev.cargolink.vn',
-    testIsolation: false
+    testIsolation: false,
+    specPattern: 'cypress/e2e/tests/**/*.cy.ts'
   }
 })
