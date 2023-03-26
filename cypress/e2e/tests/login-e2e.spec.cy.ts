@@ -7,7 +7,7 @@ require('cypress-xpath');
 
 describe('Login successful', () => {
     it('visit to login page', () => {
-        cy.visit('/login')
+        cy.visit('')
         cy.login()
     });
     it('menu should show two type-user-login options', () => {

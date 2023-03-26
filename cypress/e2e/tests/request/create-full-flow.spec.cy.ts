@@ -23,5 +23,8 @@ describe('Login successful', () => {
         it('confirm request detail and expect fee', () => {
             data.confirmRequestData()
         });
+        it('confirm request detail and expect fee', () => {
+            cy.visit('/login')
+        });
     })
 }); 
