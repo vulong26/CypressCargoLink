@@ -1,18 +1,21 @@
 import { find } from "cypress/types/lodash";
+import { HomePage } from "./homepage.page";
 
-export class Login{
+export class consignorLogin{
     elements = {
         loginBtn : () => cy.get('[datatest]'),
-        senderOpts : () => cy.get('.type-user').contains('Người gửi hàng'),
+        consignorOpts : () => cy.get('.type-user').contains('Người gửi hàng'),
+        carrierOpts : () => cy.get('.type-user').contains('Người vận tải'),
         continueBtn : () => cy.xpath("//span[contains(text(),'Tiếp theo')]"),
         phoneTextBox : () => cy.get('[placeholder="Số điện thoại"]'),
         passwordTextBox : () => cy.get('[placeholder="Mật khẩu"]'),
+        errorLogin: () => cy.get('.error-login'),
         signInBtn : () => cy.get('button').find('span').contains('Đăng nhập')     
     }
     clickLogin(){
         this.elements.loginBtn().click();   }
-    clickSenderOpts(){
-        this.elements.senderOpts().click();    }
+    clickConsignorOpts(){
+        this.elements.consignorOpts().click();    }
     clickContinue(){
         this.elements.continueBtn().first().click();    }
     typePhoneNumber(){

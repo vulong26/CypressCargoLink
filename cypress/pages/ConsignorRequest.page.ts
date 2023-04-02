@@ -2,7 +2,7 @@ import '../support/commands'
 const date = new Date()
 const loadingDate = new Date(date.getTime() + (1000 * 60 * 60 * 24));
 const deliveryDate = new Date(date.getTime() + 2*(1000 * 60 * 60 * 24));
-export class CreateRequest{
+export class consignorRequest{
     general = {
         continueBtn : () => cy.xpath("//span[contains(text(),'Tiếp theo')]"),
         backBtn : () => cy.xpath("//span[contains(text(),'Tiếp theo')]"),
@@ -21,7 +21,7 @@ export class CreateRequest{
         contactDeliveryNumberTB: () => cy.xpath('//input[@aria-label="Số di động người liên hệ"]'),
     } 
     contact = {
-        createRequestBtn : () =>cy.get('[id=btn-create-transport-request]'),
+        createRequestBtn : () =>cy.get('#btn-create-transport-request'),
         nameCargoTB: () => cy.get('input[aria-label="Tên hàng"]'),
         typeCargoSB: () => cy.xpath('//div[contains(text(),"Loại hàng")]//preceding-sibling::div'),
         typeOpts: () => cy.xpath('//div[contains(text(),"Vật liệu xây dựng")]'),

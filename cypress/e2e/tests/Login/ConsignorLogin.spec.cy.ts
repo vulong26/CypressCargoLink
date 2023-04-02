@@ -1,14 +1,12 @@
 
-import { HomePage } from "../../pages/homepage.page";
-import { Login } from "../../pages/login.page";
 import '@testing-library/cypress/add-commands'
-import '../../support/commands'
+import '../../../support/commands'
 require('cypress-xpath');
 
 describe('Login successful', () => {
     it('visit to login page', () => {
         cy.visit('')
-        cy.login()
+        cy.consignorLogin()
     });
     it('menu should show two type-user-login options', () => {
         

@@ -8,7 +8,7 @@ import './assertions'
 import '@testing-library/cypress/add-commands'
 
 import { configure } from '@testing-library/cypress'
-import { Login } from '../pages/login.page';
+import { consignorLogin } from '../pages/consignorLogin.page';
 
 
 
@@ -38,7 +38,8 @@ declare global {
       
              */
 
-            login: () => Chainable<Element>
+            consignorLogin: () => Chainable<Element>
+            carrierLogin: () => Chainable<Element>
             navigatePage: () => Chainable<Element>
             clickLink: (label: string) => Chainable<Element>
             sendData: (keys,element: string) => Chainable<Element>
@@ -55,6 +56,7 @@ Cypress.on('uncaught:exception', (err) => {
         return false
     }
 })
+
 
 
 
