@@ -3,10 +3,10 @@ import { carrierLogin } from '../pages/carrierLogin.page';
 require('cypress-xpath');
 const consignor = new consignorLogin()
 const carrier = new carrierLogin()
+
 Cypress.Commands.add('consignorLogin', () => {
-    cy.clearAllLocalStorage()
-    cy.clearAllCookies();
-    cy.clearAllSessionStorage();
+    cy.clearLocalStorage()
+    cy.clearCookies();
     cy.visit('/login');
     consignor.clickConsignorOpts();
     consignor.clickContinue();
@@ -16,9 +16,8 @@ Cypress.Commands.add('consignorLogin', () => {
     consignor.clickSignIn()
 })
 Cypress.Commands.add('carrierLogin', () => {
-    cy.clearAllLocalStorage()
-    cy.clearAllCookies();
-    cy.clearAllSessionStorage();
+    cy.clearLocalStorage()
+    cy.clearCookies();
     cy.visit('/login');
     carrier.chooseCarrierOpts();
     carrier.clickContinue();

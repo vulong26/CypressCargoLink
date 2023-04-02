@@ -8,9 +8,8 @@ describe('Login flow', () => {
     const user = new carrierLogin()
     const consignor = new consignorLogin()
     before('Clear cache', () => {
-        cy.clearAllLocalStorage()
-        cy.clearAllCookies();
-        cy.clearAllSessionStorage();
+        cy.clearLocalStorage()
+        cy.clearCookies();
     })
     context('Carriers', () => {
         it('visit to home page', () => {
@@ -60,15 +59,13 @@ describe('Login flow', () => {
     });
     context('Consignor', () => {
         before('Clear cache', () => {
-            cy.clearAllLocalStorage()
-            cy.clearAllCookies();
-            cy.clearAllSessionStorage();
+            cy.clearLocalStorage()
+            cy.clearCookies();
         })
         it('visit to home page', () => {
             cy.visit('/login')
         });
         it('click to login button should direct to login page', () => {
-            // consignor.clickSignIn()
             cy.url().should('eq', 'https://dev.dev.cargolink.vn/login')
         });
         it('should show two type-user-login options', () => {
