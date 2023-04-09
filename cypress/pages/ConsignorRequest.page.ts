@@ -1,7 +1,10 @@
+
 import '../support/commands'
 const date = new Date()
-const loadingDate = new Date(date.getTime() + (1000 * 60 * 60 * 24));
-const deliveryDate = new Date(date.getTime() + 2*(1000 * 60 * 60 * 24));
+const loadingDate = new Date(date.getTime() + 2*(1000 * 60 * 60 * 24));
+const deliveryDate = new Date(date.getTime() + 3*(1000 * 60 * 60 * 24));
+const expireTime = new Date(date.getTime() + (1000 * 60 * 60 * 24));
+
 export class consignorRequest{
     general = {
         continueBtn : () => cy.xpath("//span[contains(text(),'Tiếp theo')]"),
@@ -11,6 +14,8 @@ export class consignorRequest{
         validTimeTB: () => cy.xpath('//input[@aria-label="Có giá trị đến"]'),
         validDayTB: () =>  cy.get('input[placeholder="DD-MM-YYYY"]'),
         expectValueTB: () => cy.xpath('//input[@aria-label="Giá mong muốn (bao gồm VAT)"]'),
+        managePage : () => cy.xpath("//span[contains(text(),'Về trang quản lý đơn hàng')]"),
+
     }
     delivery = {
         deliveryAddressTB: () => cy.get('[id="destination-0"]'),
@@ -90,8 +95,8 @@ export class consignorRequest{
     }
     confirmRequestData(){
         this.general.validTimeTB().type('10:30')
-        this.general.validDayTB().type(deliveryDate.toLocaleDateString('en-GB'))
-        this.general.expectValueTB().type('53000')
+        this.general.validDayTB().type(expireTime.toLocaleDateString('en-GB'))
+        this.general.expectValueTB().type('200000')
         this.general.sendRequestBtn().click()
         //this.general.okBtn().click()
     }

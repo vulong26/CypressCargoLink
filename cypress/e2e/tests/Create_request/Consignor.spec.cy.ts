@@ -6,12 +6,10 @@ const data =new consignorRequest()
 describe('Login successful', () => {
     before('login', () => {
         cy.consignorLogin()
-        cy.intercept('GET', '/api/v1/shippers/getShipperById/').as('getShipper')
     })
 
     describe('fill data for request', () => {
         it('go to create request request', () => {
-            cy.wait('@getShipper')
             data.clickToCreateRequest()
             
         });
@@ -26,8 +24,6 @@ describe('Login successful', () => {
         });
         it('confirm request detail and expect fee', () => {
             data.confirmRequestData()
-        });
-        it('confirm request detail and expect fee', () => {
         });
     })
 }); 

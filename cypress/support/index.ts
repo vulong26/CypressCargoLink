@@ -50,11 +50,16 @@ declare global {
 
 }
 const resizeObserverLoopErrRe = /^[^(ResizeObserver loop limit exceeded)]/
+
+const reCapCha = /^[^Error: reCAPTCHA placeholder element must be an element or id]/
 Cypress.on('uncaught:exception', (err) => {
     /* returning false here prevents Cypress from failing the test */
     if (resizeObserverLoopErrRe.test(err.message)) {
         return false
     }
+    if (err.message.includes('reCAPTCHA placeholder element must be an element or id')) {
+        return false
+      }
 })
 
 
