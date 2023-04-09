@@ -1,17 +1,32 @@
-
-import { HomePage } from "../pages/homepage.page";
-import { Login } from "../pages/login.page";
+import { consignorLogin } from '../pages/consignorLogin.page';
+import { carrierLogin } from '../pages/carrierLogin.page';
 require('cypress-xpath');
-const consignor = new Login()
-const homePage = new HomePage()
-Cypress.Commands.add('login', () => {
+const consignor = new consignorLogin()
+const carrier = new carrierLogin()
+
+Cypress.Commands.add('consignorLogin', () => {
+    cy.clearLocalStorage()
+    cy.clearCookies();
     cy.visit('/login');
-    consignor.clickSenderOpts();
+    consignor.clickConsignorOpts();
     consignor.clickContinue();
     consignor.typePhoneNumber()
     consignor.clickContinue()
     consignor.typePassWord()
     consignor.clickSignIn()
+    cy.wait(1000)
+})
+Cypress.Commands.add('carrierLogin', () => {
+    cy.clearLocalStorage()
+    cy.clearCookies();
+    cy.visit('/login');
+    carrier.chooseCarrierOpts();
+    carrier.clickContinue();
+    carrier.typePhoneNumber()
+    carrier.clickContinue()
+    carrier.typePassWord()
+    carrier.clickSignIn()
+    cy.wait(1000)
 
 })
 Cypress.Commands.add('clickLink', (label) => {
