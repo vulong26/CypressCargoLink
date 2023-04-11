@@ -9,7 +9,6 @@
     "cy:run": "npx cypress run",
     "cy:run:chrome": "cypress run --browser chrome",
     "cy:run:firefox": "cypress run --browser firefox"
-
   },
   "keywords": [],
   "author": "",
@@ -18,6 +17,9 @@
     "@testing-library/cypress": "^9.0.0",
     "cypress": "^12.6.0",
     "cypress-xpath": "^2.0.1",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^4.3.0",
+    "mochawesome-report-generator": "^6.2.0",
     "typescript": "^4.9.4"
   }
 }
