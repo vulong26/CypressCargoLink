@@ -1,4 +1,7 @@
 pipeline {
+    triggers {
+        cron('H 0 * * 0')
+    }
     agent any
     stages {
         stage('Hello') {
@@ -11,6 +14,16 @@ pipeline {
                 }
             }
         }
+        // stage('Run test') {
+        //     steps {
+        //         script {
+        //             sh '''
+        //             npm install ...
+        //             cypress run ...
+        //             '''
+        //         }
+        //     }
+        // }
     }
     post
     {
