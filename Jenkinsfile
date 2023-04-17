@@ -14,14 +14,14 @@ pipeline {
                 }
             }
         }
-        stage('Run test') {
+        stage('Install Dependencies') {
             steps {
-                script {
-                    sh '''
-                    npm install ...
-                    npx cypress run ...
-                    '''
-                }
+                sh 'npm install'
+            }
+        }
+        stage('Run Cypress Tests') {
+            steps {
+                sh 'npx cypress run'
             }
         }
     }
