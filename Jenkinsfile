@@ -14,16 +14,16 @@ pipeline {
                 }
             }
         }
-        // stage('Run test') {
-        //     steps {
-        //         script {
-        //             sh '''
-        //             npm install ...
-        //             cypress run ...
-        //             '''
-        //         }
-        //     }
-        // }
+        stage('Run test') {
+            steps {
+                script {
+                    sh '''
+                    npm install ...
+                    npx cypress run ...
+                    '''
+                }
+            }
+        }
     }
     post
     {
