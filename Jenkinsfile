@@ -18,8 +18,8 @@ pipeline {
             steps {
                 script {
                     sh '''
-                    npm install
-                    npx cypress run
+                    npm install ...
+                    npx cypress run ...
                     '''
                 }
             }
