@@ -35,7 +35,7 @@ pipeline {
                     mimeType: 'text/html',
                     subject: env.TEST + " is available for running pipeline",
                     body: "${env.TEST} sample email",
-                    to: "vanlamnguyen2110@gmail.com")
+                    to: "vuhoanglong0602@gmail.com")
             }
         }
     }
