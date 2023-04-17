@@ -63,13 +63,13 @@ export class consignorRequest{
         this.general.continueBtn().click()
     }
     fillContactInformation(){
-        this.contact.nameCargoTB().type('long')
+        this.contact.nameCargoTB().type('Bao cát')
         this.contact.typeCargoSB().click()
         this.contact.typeOpts().click()
         this.contact.unitSB().click()
         this.contact.unitOpts().click()
         this.contact.quantityTB().type('2')
-        this.contact.weightTB().type('300')
+        this.contact.weightTB().type('3')
         this.clickToContinue()
     }
     fillLoadingInformation(){
@@ -98,6 +98,6 @@ export class consignorRequest{
         this.general.validDayTB().type(expireTime.toLocaleDateString('en-GB'))
         this.general.expectValueTB().type('200000')
         this.general.sendRequestBtn().click()
-        //this.general.okBtn().click()
+        this.general.okBtn().click()
     }
 }
