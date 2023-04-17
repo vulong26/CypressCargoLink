@@ -7,6 +7,7 @@ pipeline {
                     env.TEST = "Silicon Labs"
                     echo env.TEST
                     echo 'Hello World'
+                    echo 'Cypress Run test #1'
                 }
             }
         }
