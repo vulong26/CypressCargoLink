@@ -19,7 +19,7 @@ pipeline {
                 bat 'npm install'
             }
         }
-        stage('Run Cypress Tests') {
+        stage('Run Tests') {
             steps {
                 bat 'npx cypress run'
             }
