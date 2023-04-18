@@ -19,6 +19,7 @@ pipeline {
                         git submodule sync 
                         git config --file=.gitmodules submodule.pipeline_test.url https://github.com/alternativevn/pipeline_test.git
                         git submodule update --init --recursive --remote
+                        git pull
                     '''
                     }
                 }
@@ -37,7 +38,7 @@ pipeline {
             }
         }
     }
-    
+
     post
     {
         success
