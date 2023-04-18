@@ -1,3 +1,4 @@
 [submodule "pipeline_test"]
 	path = pipeline_test
 	url = https://github.com/alternativevn/pipeline_test.git
+	branch = dev

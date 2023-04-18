@@ -14,16 +14,27 @@ pipeline {
                 }
             }
         }
-        // stage('Run test') {
-        //     steps {
-        //         script {
-        //             sh '''
-        //             npm install ...
-        //             cypress run ...
-        //             '''
-        //         }
-        //     }
-        // }
+
+        stage('Update submodules components') {
+            steps {
+             withCredentials([gitUsernamePassword(credentialsId: 'github-usr-pwd', gitToolName: 'Default')]){       
+                sh '''
+                        git submodule sync 
+                        git config --file=.gitmodules submodule.pipeline_test.url https://github.com/alternativevn/pipeline_test.git
+                        git submodule update --init --recursive --remote
+                    '''
+                    }
+                }
+            }
+
+        stage('Run test') {
+            steps {
+                dir('pipeline_test') {
+                    sh 'cat sample.txt'
+                }
+            }
+        }
+        }
     }
     post
     {
