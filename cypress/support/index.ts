@@ -42,7 +42,7 @@ declare global {
             carrierLogin: () => Chainable<Element>
             navigatePage: () => Chainable<Element>
             clickLink: (label: string) => Chainable<Element>
-            sendData: (keys,element: string) => Chainable<Element>
+            // sendData: (keys,element: string) => Chainable<Element>
 
         }
 
