@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./", // Define the base directory for module resolution
+    "types": ["cypress", "node", "cypress-xpath","@testing-library/cypress"],
+    "target": "es5",
+    "lib": ["es5", "es6", "dom"],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "noImplicitAny": false,
+    "sourceMap": true,
+    "strict": false,
+    "esModuleInterop": true
+  },
+  "include": [
+    "**/*.ts",
+    "/*.spec.ts",
+    "/*.spec.cy.ts"
+  ],
+  "exclude": ["node_modules", "cypress"]
+}
