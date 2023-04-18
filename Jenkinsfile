@@ -1,7 +1,4 @@
 pipeline {
-    triggers {
-        cron('H 0 * * 0')
-    }
     agent any
     stages {
         stage('Hello') {
@@ -30,12 +27,17 @@ pipeline {
         stage('Run test') {
             steps {
                 dir('pipeline_test') {
-                    sh 'cat sample.txt'
+                    withCredentials([gitUsernamePassword(credentialsId: 'github-usr-pwd', gitToolName: 'Default')]){
+                        sh '''
+                        git checkout dev
+                        cat sample.txt
+                        '''
+                    }
                 }
             }
         }
-        }
     }
+    
     post
     {
         success
