@@ -19,7 +19,6 @@ pipeline {
                         git submodule sync 
                         git config --file=.gitmodules submodule.pipeline_test.url https://github.com/alternativevn/pipeline_test.git
                         git submodule update --init --recursive --remote
-                        git pull
                     '''
                     }
                 }
@@ -31,6 +30,7 @@ pipeline {
                     withCredentials([gitUsernamePassword(credentialsId: 'github-usr-pwd', gitToolName: 'Default')]){
                         sh '''
                         git checkout dev
+                        git pull
                         cat sample.txt
                         '''
                     }
