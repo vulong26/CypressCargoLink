@@ -8,13 +8,16 @@ export default defineConfig({
   viewportHeight: 900,
   chromeWebSecurity: false,
   video: false,
-  // Viewport settings overridden for component tests
-  // Command timeout overridden for E2E tests
+  reporter: 'cypress-mochawesome-reporter',
+
   e2e: {
     supportFile: false,
     defaultCommandTimeout: 5000,
     baseUrl:'https://dev.dev.cargolink.vn',
     testIsolation: false,
-    specPattern: 'cypress/e2e/tests/**/*.cy.ts'
+    specPattern: 'cypress/e2e/tests/**/*.cy.ts',
+    setupNodeEvents(on, config) {
+      require('cypress-mochawesome-reporter/plugin')(on);
+    },
   }
 })
