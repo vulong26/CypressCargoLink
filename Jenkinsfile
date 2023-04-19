@@ -19,7 +19,7 @@ pipeline {
                 bat "npm i"
             }
         }
-        stage('Run Tests') {
+        stage('Tests') {
             steps {
                 bat "npm run html-report"
             }
