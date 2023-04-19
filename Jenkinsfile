@@ -4,7 +4,7 @@ pipeline {
     }
     agent any 
     stages {
-        stage('Hello') {
+        stage('Start') {
             steps {
                 script {
                     env.TEST = "Silicon Labs"
