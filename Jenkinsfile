@@ -21,6 +21,7 @@ pipeline {
         }
         stage('Tests') {
             steps {
+                bat "LC_ALL=C.UTF-8"
                 bat "npm run html-report"
             }
         }
