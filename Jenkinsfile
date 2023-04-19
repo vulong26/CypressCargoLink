@@ -21,7 +21,7 @@ pipeline {
         }
         stage('Tests') {
             steps {
-                bat "npm run html-report"
+                bat "npm run cy:run"
             }
         }
     }
