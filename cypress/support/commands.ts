@@ -32,6 +32,6 @@ Cypress.Commands.add('carrierLogin', () => {
 Cypress.Commands.add('clickLink', (label) => {
     cy.get('a').contains(label).click()
 })
-Cypress.Commands.add('sendData', (element, keys) => {
-    cy.get(element).type(keys)
-})
+// Cypress.Commands.add('sendData', (element, keys) => {
+//     cy.get(element).type(keys)
+// })
