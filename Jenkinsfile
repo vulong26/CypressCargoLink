@@ -41,5 +41,8 @@ pipeline {
                     attachmentsPattern: emailAttachments)
             }
         }
+        always{
+            mail bcc: '', body: 'I send you lastest test report  build!', cc: 'vulong265@gmail.com', from: '', replyTo: '', subject: 'Test report ', to: 'vuhoanglong060@gmail.com'
+        }
     }
 }
