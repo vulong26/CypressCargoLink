@@ -10,7 +10,6 @@
     "noImplicitAny": false,
     "sourceMap": true,
     "strict": false,
-    "esModuleInterop": true
   },
   "include": [
     "**/*.ts",
