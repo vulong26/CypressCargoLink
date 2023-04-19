@@ -16,5 +16,4 @@
     "/*.spec.ts",
     "/*.spec.cy.ts"
   ],
-  "exclude": ["node_modules", "cypress"]
 }
