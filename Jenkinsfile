@@ -27,6 +27,9 @@ pipeline {
     }
     post
     {
+        always{
+            publishHTML([allowMissing: false, reportDir: 'cypress/reports/html', reportFiles: 'index.html'])
+        }
         success
         {
             script {
