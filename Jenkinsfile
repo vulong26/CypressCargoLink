@@ -19,7 +19,7 @@ pipeline {
                 bat "npm i"
             }
         }
-        stage('Tests') {
+        stage('E2e Tests') {
             steps {
                 bat "LC_ALL=C.UTF-8"
                 bat "npm run html-report"
