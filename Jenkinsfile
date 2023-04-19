@@ -32,7 +32,7 @@ pipeline {
         {
             script {
                 env.ForEmailPlugin = env.WORKSPACE
-                 def emailAttachments = '/reports/html/index.html'
+                 def emailAttachments = './reports/html/index.html'
                 emailext( 
                     mimeType: 'text/html',
                     subject: env.TEST + " is available for running pipeline",
