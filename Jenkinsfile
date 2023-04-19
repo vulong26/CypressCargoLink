@@ -32,7 +32,7 @@ pipeline {
         {
             script {
                 env.ForEmailPlugin = env.WORKSPACE
-                def emailAttachments = './reports/html/index.html'
+                def emailAttachments = 'reports/html/index.html'
                 emailext( 
                     mimeType: 'text/html',
                     subject: env.TEST + " is available for running pipeline",
@@ -43,6 +43,18 @@ pipeline {
         }
         always{
             mail bcc: '', body: 'I send you lastest test report  build!', cc: 'vulong265@gmail.com', from: '', replyTo: '', subject: 'Test report ', to: 'vuhoanglong060@gmail.com'
+            publishHTML target: [
+                        allowMissing: false,
+                        alwaysLinkToLastBuild: true,
+                        keepAll: true,
+                        reportDir: '**/reports/html',
+                        reportFiles: 'index.html',
+                        reportName: 'Test Results'
+                    ]
+            emailext body: "<html><head></head><body><p>I send you lastest test report build!</p></body></html>",
+                     subject: "Test Report",
+                     attachmentsPattern: "**/reports/html/*.html",
+                     to: "vuhoanglong0602@gmail.com"
         }
     }
 }
