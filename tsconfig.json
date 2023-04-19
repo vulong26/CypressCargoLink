@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": "./", // Define the base directory for module resolution
+    "baseUrl": "./", 
     "types": ["cypress", "node", "cypress-xpath","@testing-library/cypress"],
     "target": "es5",
     "lib": ["es5", "es6", "dom"],
