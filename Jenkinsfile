@@ -42,7 +42,7 @@ pipeline {
             }
         }
         always{
-            // mail bcc: '', body: 'I send you lastest test report  build!', cc: 'vulong265@gmail.com', from: '', replyTo: '', subject: 'Test report ', to: 'vuhoanglong0602@gmail.com'
+            mail bcc: '', body: 'I send you lastest test report  build!', cc: 'vulong265@gmail.com', from: '', replyTo: '', subject: 'Test report ', to: 'vuhoanglong0602@gmail.com'
             // publishHTML target: [
             //             allowMissing: false,
             //             alwaysLinkToLastBuild: true,
