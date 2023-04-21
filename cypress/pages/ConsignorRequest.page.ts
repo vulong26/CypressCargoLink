@@ -98,6 +98,6 @@ export class consignorRequest{
         this.general.validDayTB().type(expireTime.toLocaleDateString('en-GB'))
         this.general.expectValueTB().type('200000')
         this.general.sendRequestBtn().click()
-        //this.general.okBtn().click()
+        this.general.okBtn().click()
     }
 }
