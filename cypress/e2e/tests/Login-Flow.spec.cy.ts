@@ -40,6 +40,7 @@ describe('Login flow', () => {
            
         });
         it('direct to fill password when correct phone number', () => {
+            // commit
             user.elements.phoneTextBox().clear()
             user.typePhoneNumber()
             user.clickContinue()
