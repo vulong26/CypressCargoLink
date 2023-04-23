@@ -10,8 +10,7 @@ describe('Login successful', () => {
 
     describe('fill data for request', () => {
         it('go to create request request', () => {
-            data.clickToCreateRequest()
-            
+            data.clickToCreateRequest() 
         });
         it('contact information page', () => {
             data.fillContactInformation()
@@ -26,4 +25,4 @@ describe('Login successful', () => {
             data.confirmRequestData()
         });
     })
-}); 
+});
