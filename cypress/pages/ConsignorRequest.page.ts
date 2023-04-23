@@ -63,20 +63,20 @@ export class consignorRequest{
         this.general.continueBtn().click()
     }
     fillContactInformation(){
-        this.contact.nameCargoTB().type('long')
+        this.contact.nameCargoTB().type('Xi măng')
         this.contact.typeCargoSB().click()
         this.contact.typeOpts().click()
         this.contact.unitSB().click()
         this.contact.unitOpts().click()
-        this.contact.quantityTB().type('2')
-        this.contact.weightTB().type('300')
+        this.contact.quantityTB().type('10')
+        this.contact.weightTB().type('2')
         this.clickToContinue()
     }
     fillLoadingInformation(){
         this.loading.loadingAddressTB().type('10, Phố Phạm Văn Bạch, Cầu Giấy, Hà Nội')
         this.loading.suggestionAddress().click()
         this.loading.locationDetailTB().type('Hướng sân bóng tòa nhà FPT Tower')
-        this.loading.loadingTimeTB().type('09:30')
+        this.loading.loadingTimeTB().type(loadingDate.toLocaleTimeString('en-GB'))
         this.loading.loadingDayTB().type(loadingDate.toLocaleDateString('en-GB'))
         this.loading.contactNameTB().type('anh Phương')
         this.loading.contactNumberTB().type('0913451863')
@@ -87,7 +87,7 @@ export class consignorRequest{
         this.loading.suggestionAddress().click()
         this.delivery.deliveryDetailTB().type('Nhà số 6')
         cy.wait(2000)
-        this.delivery.deliveryTimeTB().type('23:30')
+        this.delivery.deliveryTimeTB().type(deliveryDate.toLocaleTimeString('en-GB'))
         this.delivery.deliveryDayTB().type(deliveryDate.toLocaleDateString('en-GB'))
         this.delivery.contactDeliveryTB().type('anh Long')
         this.delivery.contactDeliveryNumberTB().type('0866744860')
