@@ -8,17 +8,18 @@ describe('Quote fee for transport', () => {
         cy.carrierLogin()    
 })
     context('Complete fee quote', () => {        
-    it('request created', () => {
-        cy.carrierLogin() 
+    it('Request created', () => {
         cy.xpath('//a[contains(text(),"Hàng tìm xe")]').click()
         cy.get('.truck-type').click()
         cy.xpath('//div[contains(text(),"Có hiệu lực đến")]/following-sibling::button').click()
         cy.xpath('//input[@aria-label="Phí vận chuyển"]').type('190000')
         cy.xpath('//div[contains(text(),"Loại xe")]/preceding-sibling::div').type('xe bán tải')
         cy.xpath('//span[contains(text(),"Xe bán tải")]').click()
-        cy.xpath('//div[contains(text(),"Loại xe")]/preceding-sibling::div').click()
+        //cy.xpath('//div[contains(text(),"Loại xe")]/preceding-sibling::div').click()
+        cy.wait(500)
         cy.xpath('//input[@aria-label="Có giá trị đến"]').type(expireTime.toLocaleString('en-GB'))
         cy.xpath('//span[contains(text(),"Gửi")]').click()
+        cy.wait(500)
     });
     it('Accept fee', () => {
         cy.consignorLogin()
