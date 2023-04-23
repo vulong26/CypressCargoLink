@@ -33,7 +33,7 @@ export class carrierRequest{
         this.general.sendBtn().click()
     }
     fillContactInformation(){
-        this.carrier.carNumber().type('90C-01871')
+        this.carrier.carNumber().type('90C-01872')
         this.carrier.carNumberOpts().click()
         this.carrier.weightCar().type('20')
         this.carrier.deliverFee().type('1000000')
