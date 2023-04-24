@@ -9,7 +9,7 @@
     "cy:run": "npx cypress run",
     "cy:run:chrome": "cypress run --browser chrome",
     "cy:run:firefox": "cypress run --browser firefox",
-    "html-report": "cypress run --spec cypress/e2e/tests/Login-Flow.spec.cy.ts --browser chrome --headless"
+    "html-report": "cypress run --spec cypress/e2e/tests/LoginFlow.spec.cy.ts --browser chrome --headless"
   },
   "keywords": [],
   "author": "",
