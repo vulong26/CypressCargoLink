@@ -1,7 +1,7 @@
 import '@testing-library/cypress/add-commands'
 import '../../support/commands'
-import { carrierLogin } from '../../pages/carrierLogin.page';
-import { consignorLogin } from '../../pages/consignorLogin.page';
+import { carrierLogin } from '../../pages/CarrierLogin.page';
+import { consignorLogin } from '../../pages/ConsignorLogin.page';
 require('cypress-xpath');
 
 describe('Login flow', () => {
