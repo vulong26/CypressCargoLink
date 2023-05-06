@@ -8,7 +8,7 @@ import './assertions'
 import '@testing-library/cypress/add-commands'
 
 import { configure } from '@testing-library/cypress'
-import { consignorLogin } from '../pages/consignorLogin.page';
+import { consignorLogin } from '../pages/ConsignorLogin.page';
 
 
 

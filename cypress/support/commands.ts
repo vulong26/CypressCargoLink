@@ -1,5 +1,5 @@
-import { consignorLogin } from '../pages/consignorLogin.page';
-import { carrierLogin } from '../pages/carrierLogin.page';
+import { consignorLogin } from '../pages/ConsignorLogin.page';
+import { carrierLogin } from '../pages/CarrierLogin.page';
 require('cypress-xpath');
 const consignor = new consignorLogin()
 const carrier = new carrierLogin()
