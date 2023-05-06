@@ -14,10 +14,10 @@ export class carrierRequest{
     carrier = {
         carNumber: () => cy.xpath('//div[contains(text(),"Biển số xe")]/preceding-sibling::div'),
         carNumberOpts: () => cy.get('.q-virtual-scroll__content'),        
-        weightCar: () => cy.xpath('//input[@aria-label="Trọng lượng (tấn)"]'),
-        deliverFee: () => cy.xpath('//input[@aria-label="Phí vận chuyển, gồm VAT (tấn/km)"]'),
+        weightCar: () => cy.xpath('//input[@tabindex="2"]'),
+        deliverFee: () => cy.xpath('//input[@tabindex="4"]'),
         lessTruckLoad: () => cy.xpath('//div[contains(text(),"Ghép hàng")]'),
-        startPoint: () => cy.get('#origin'),
+        startPoint: () => cy.xpath('//input[@id="origin"]'),
         suggestOpts: () => cy.get('.wrapper-suggestion-address').children().first(),
         startTime: () => cy.xpath('//input[@aria-label="Thời gian khởi hành"]'),
         endPoint: () => cy.get('#destination'),
