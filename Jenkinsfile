@@ -22,7 +22,7 @@ pipeline {
         stage('Run Tests') {
             steps {
                 bat "npx cypress install"
-                bat "npm run cy:run"
+                bat "npm run html-report"
             }
         }
     }
@@ -36,10 +36,7 @@ pipeline {
             //         body: "${env.TEST} sample email",
             //         to: "vuhoanglong0602@gmail.com")
             // }
-            emailext body: "<html><head></head><body><p>I send you lastest test report build!</p></body></html>",
-                     subject: "Test Report",
-                     attachmentsPattern: "**/reports/html/",
-                     to: "vuhoanglong0602@gmail.com"
+            emailext (attachLog: true, attachmentsPattern: '**/reports/html/index.html', body: '', subject: 'Test report', to: 'vuhoanglong0602@gmail.com')
         }
     }
 }
