@@ -39,8 +39,7 @@ pipeline {
             emailext body: "<html><head></head><body><p>I send you lastest test report build!</p></body></html>",
                      subject: "Test Report",
                      attachmentsPattern: "**/reports/html/",
-                     to: "vuhoanglong0602@gmail.com",
-                     cc: 'vulong265@gmail.com'
+                     to: "vuhoanglong0602@gmail.com"
         }
     }
 }
