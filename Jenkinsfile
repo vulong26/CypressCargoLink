@@ -36,7 +36,7 @@ pipeline {
             //         body: "${env.TEST} sample email",
             //         to: "vuhoanglong0602@gmail.com")
             // }
-            emailext (attachLog: true, attachmentsPattern: '**/reports/html/index.html', body: '', subject: 'Test report', to: 'vuhoanglong0602@gmail.com')
+            emailext (attachLog: true, attachmentsPattern: '**/reports/html/index.html', body: '', subject: 'Pipiline result report', to: 'vulong265@gmail.com')
         }
     }
 }
