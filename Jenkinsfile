@@ -29,14 +29,16 @@ pipeline {
     post
     {
         always{
-            mail bcc: '', body: 'I send you lastest test report  build!', cc: 'vulong265@gmail.com', from: '', replyTo: '', subject: 'Test report ', to: 'vuhoanglong0602@gmail.com',attachLog: true, attachmentsPattern: '**/reports/html/index.html',
+            mail bcc: '', body: 'I send you lastest test report  build!', cc: 'vulong265@gmail.com', from: '', replyTo: '', subject: 'Test report ', to: 'vuhoanglong0602@gmail.com',
+            attachLog: true,
+            attachmentsPattern: '**/reports/html/index.html'
             //     emailext( 
             //         mimeType: 'text/html',
             //         subject: env.TEST + " is available for running pipeline",
             //         body: "${env.TEST} sample email",
             //         to: "vuhoanglong0602@gmail.com")
             // }
-            emailext (attachLog: true, attachmentsPattern: '**/reports/html/index.html', body: '', subject: 'Pipiline result report', to: 'vulong265@gmail.com')
+            // emailext (attachLog: true, attachmentsPattern: '**/reports/html/index.html', body: '', subject: 'Pipiline result report', to: 'vulong265@gmail.com')
         }
     }
 }
