@@ -29,9 +29,8 @@ pipeline {
     post
     {
         always{
-            mail bcc: '', body: 'I send you lastest test report  build!', cc: 'vulong265@gmail.com', from: '', replyTo: '', subject: 'Test report ', to: 'vuhoanglong0602@gmail.com',
-            attachLog: true,
-            attachmentsPattern: '**/reports/html/index.html'
+            mail attachLog: true, attachmentsPattern: '**/reports/html/index.html', bcc: '', body: 'I send you lastest test report  build!', cc: 'vulong265@gmail.com', from: '', replyTo: '', subject: 'Test report ', to: 'vuhoanglong0602@gmail.com'
+
             //     emailext( 
             //         mimeType: 'text/html',
             //         subject: env.TEST + " is available for running pipeline",
