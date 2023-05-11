@@ -25,12 +25,19 @@ pipeline {
                 bat "npm run html-report"
             }
         }
+        stage('Send Mail') {
+            emailext (
+                    attachLog: true, attachmentsPattern: "**/reports/html",
+                    mimeType: 'text/html',
+                    body: '',                         
+                    subject: 'Pipiline result report', to: 'vulong265@gmail.com')
+        }
     }
     post
     {
         always{
             emailext (
-                    attachLog: true, attachmentsPattern: "**/reports/html",
+                    attachLog: true, attachmentsPattern: "**/reports/html/index.html",
                     mimeType: 'text/html',
                     body: '',                         
                     subject: 'Pipiline result report', to: 'vulong265@gmail.com')
