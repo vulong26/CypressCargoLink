@@ -41,6 +41,6 @@ pipeline {
                     mimeType: 'text/html',
                     body: '',                         
                     subject: 'Pipiline result report', to: 'vulong265@gmail.com')
-        },
+        }
     }
 }
