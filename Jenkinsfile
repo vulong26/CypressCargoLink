@@ -25,20 +25,10 @@ pipeline {
                 bat "npm run html-report"
             }
         }
-        stage('Send Email') {
-            env.ForEmailPlugin= env.WORKSPACE
-                emailext (
-                    mimeType: 'text/html',
-                    body: '${FILE, path="myfile.html"}',
-                    subject: currentBuild.currentResult + " : " + env.JOB_NAME,
-                    to: 'example@example.com')
-
-        }
     }
     post
     {
         always{
-            mail bcc: '', body: 'I send you lastest test report  build!', cc: 'vulong265@gmail.com', from: '', replyTo: '', subject: 'Test report ', to: 'vuhoanglong0602@gmail.com'
             //     emailext( 
             //         mimeType: 'text/html',
             //         subject: env.TEST + " is available for running pipeline",
@@ -47,10 +37,10 @@ pipeline {
             // }
             // env.ForEmailPlugin = env.WORKSPACE
             emailext (
-                    attachLog: true, attachmentsPattern: "**/reports/html/index.html",
+                    attachLog: true, attachmentsPattern: "**/reports/html",
                     mimeType: 'text/html',
-                    body: '${FILE, path="**/reports/html/index.html"}',                         
+                    body: '',                         
                     subject: 'Pipiline result report', to: 'vulong265@gmail.com')
-        }
+        },
     }
 }
