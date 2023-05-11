@@ -36,6 +36,7 @@ pipeline {
             //         body: "${env.TEST} sample email",
             //         to: "vuhoanglong0602@gmail.com")
             // }
+            env.ForEmailPlugin = env.WORKSPACE
             emailext (
                     attachLog: true, attachmentsPattern: "**/reports/html/index.html",
                     mimeType: 'text/html',
