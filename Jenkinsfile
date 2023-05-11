@@ -4,7 +4,7 @@ pipeline {
     }
     agent any 
     stages {
-        stage('Hello') {
+        stage('Starting') {
             steps {
                 script {
                     env.TEST = "Silicon Labs"
@@ -29,13 +29,6 @@ pipeline {
     post
     {
         always{
-            //     emailext( 
-            //         mimeType: 'text/html',
-            //         subject: env.TEST + " is available for running pipeline",
-            //         body: "${env.TEST} sample email",
-            //         to: "vuhoanglong0602@gmail.com")
-            // }
-            // env.ForEmailPlugin = env.WORKSPACE
             emailext (
                     attachLog: true, attachmentsPattern: "**/reports/html",
                     mimeType: 'text/html',
