@@ -29,9 +29,9 @@ pipeline {
     post
     {
         success{
-            powershell 'Compress-Archive "$pwd/cypress/reports/html" reports.zip'
+            powershell 'Compress-Archive "./cypress/reports/html" reports.zip'
             emailext (
-                    attachLog: true, attachmentsPattern: "$pwd/reports.zip",
+                    attachLog: true, attachmentsPattern: "reports.zip",
                     mimeType: '*',
                     body: 'Pipeline run success!!',                         
                     subject: 'Pipiline result report', to: 'vulong265@gmail.com')
