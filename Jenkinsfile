@@ -2,9 +2,6 @@ pipeline {
     triggers {
         cron('H 0 * * 0')
     }
-    ansiColor('xterm') {
-    // some block
-    }
     agent any 
     stages {
         stage('Starting') {
