@@ -6,10 +6,11 @@
   "scripts": {
     "cy:open": "npx cypress open",
     "cy:run": "npx cypress run",
-    "cy:fullflow": "cypress run --spec cypress/e2e/tests/NewOrderFlow/1st_Createrequet.spec.cy.ts  2st --browser chrome --headless",
+    "cy:fullflow": "cypress run --spec cypress/e2e/tests/NewOrderFlow/**.spec.cy.ts --browser chrome --headless",
     "cy:run:chrome": "cypress run --browser chrome",
     "cy:run:firefox": "cypress run --browser firefox",
-    "html-report": "cypress run --env NO_COLOR=1 --spec cypress/e2e/tests/LoginFlow.spec.cy.ts --browser chrome --headless"
+    "html-report": "cypress run --spec cypress/e2e/tests/LoginFlow.spec.cy.ts --browser chrome --headless",
+    "test:data": "cypress run --spec cypress/e2e/tests/TestAccount.spec.cy.ts --browser chrome --headless"
   },
   "keywords": [],
   "author": "",

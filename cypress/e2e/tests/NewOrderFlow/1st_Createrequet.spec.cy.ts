@@ -18,10 +18,10 @@ describe('Login successful', () => {
                 this.consignor= consignor;
             })
         })
-        it('go to create request request', () => {
+        it('Go to create request request', () => {
             data.clickToCreateRequest() 
         });
-        it('contact information page', function(){
+        it('Import data for contact information page', function(){
             data.contact.nameCargoTB().type(this.consignor.cargoName)
             data.contact.typeCargoSB().click()
             data.contact.typeOpts().click()
@@ -31,7 +31,7 @@ describe('Login successful', () => {
             data.contact.weightTB().type(this.consignor.weight)
             data.clickToContinue()
         });
-        it('loading information page', function(){
+        it('Import data for loading information page', function(){
             data.loading.loadingAddressTB().type(this.consignor.loadingAddress)
             data.loading.suggestionAddress().click()
             data.loading.locationDetailTB().type(this.consignor.locationDetail)
@@ -41,7 +41,7 @@ describe('Login successful', () => {
             data.loading.contactNumberTB().type(this.consignor.contactNumber)
             data.clickToContinue()
         });
-        it('delivery information page', function(){
+        it('Import data for delivery information page', function(){
             data.delivery.deliveryAddressTB().type(this.consignor.deliveryAddress)
             data.loading.suggestionAddress().click()
             data.delivery.deliveryDetailTB().type(this.consignor.deliveryDetail)
@@ -52,7 +52,7 @@ describe('Login successful', () => {
             data.delivery.contactDeliveryNumberTB().type(this.consignor.contactDeliveryNumber)
             data.clickToContinue()
         });
-        it('confirm request detail and expect fee', function(){
+        it('Confirm request detail and expect fee', function(){
             data.general.validTimeTB().type('10:30')
             data.general.validDayTB().type(expireTime.toLocaleDateString('en-GB'))
             data.general.expectValueTB().type(this.consignor.expectValue)

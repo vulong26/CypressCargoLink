@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Vũ Hoàng Long",
+    "type": "carrier",
+    "phoneNumber": "0866744860",
+    "password": "Vulong2662"
+  },
+  {
+    "name": "Nguyễn Đức Phương",
+    "type": "carrier",
+    "phoneNumber": "0913451683",
+    "password": "Huong1805"
+  },
+  {
+    "name": "Jenny Vũ",
+    "type": "consignor",
+    "phoneNumber": "0913451683",
+    "password": "Huong1805@"
+  }
+]
