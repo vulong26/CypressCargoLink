@@ -4,12 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "cy:open": "npx cypress open",
     "cy:run": "npx cypress run",
+    "cy:fullflow": "cypress run --spec cypress/e2e/tests/NewOrderFlow/1st_Createrequet.spec.cy.ts  2st --browser chrome --headless",
     "cy:run:chrome": "cypress run --browser chrome",
     "cy:run:firefox": "cypress run --browser firefox",
-    "html-report": "cypress run --spec cypress/e2e/tests/LoginFlow.spec.cy.ts --browser chrome --headless"
+    "html-report": "NO_COLOR=1 cypress run --spec cypress/e2e/tests/LoginFlow.spec.cy.ts --browser chrome --headless"
   },
   "keywords": [],
   "author": "",
