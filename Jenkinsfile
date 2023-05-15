@@ -28,11 +28,18 @@ pipeline {
     }
     post
     {
-        always{
+        success{
             emailext (
                     attachLog: true, attachmentsPattern: "**/reports/html/index.html",
                     mimeType: 'text/html',
-                    body: '',                         
+                    body: 'Pipeline run success!!',                         
+                    subject: 'Pipiline result report', to: 'vulong265@gmail.com')
+        }
+        failure{
+            emailext (
+                    attachLog: true, attachmentsPattern: "**/reports/html/index.html",
+                    mimeType: 'text/html',
+                    body: 'Pipeline run fail. Please check code soon!',                         
                     subject: 'Pipiline result report', to: 'vulong265@gmail.com')
         }
     }
