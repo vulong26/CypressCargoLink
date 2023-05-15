@@ -29,7 +29,7 @@ pipeline {
     post
     {
         success{
-            powershell 'Compress-Archive "./cypress/reports/html" reports.zip'
+            powershell 'Compress-Archive -Force "./cypress/reports/html" reports.zip'
             emailext (
                     attachLog: true, attachmentsPattern: "reports.zip",
                     mimeType: '*',
