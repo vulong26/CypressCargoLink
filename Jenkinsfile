@@ -32,10 +32,10 @@ pipeline {
     post
     {
         success{
-            sh "tar -zcvf ./reports/html.tar.gz html"
+            powershell 'Compress-Archive "$pwd/cypress/reports/html" reports.zip'
             emailext (
-                    attachLog: true, attachmentsPattern: "**/reports/html/index.html",
-                    mimeType: 'text/html',
+                    attachLog: true, attachmentsPattern: "$pwd/reports.zip",
+                    mimeType: '*',
                     body: 'Pipeline run success!!',                         
                     subject: 'Pipiline result report', to: 'vulong265@gmail.com')
         }
