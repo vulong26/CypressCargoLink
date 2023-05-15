@@ -2,6 +2,9 @@ pipeline {
     triggers {
         cron('H 0 * * 0')
     }
+    ansiColor('xterm') {
+    // some block
+    }
     agent any 
     stages {
         stage('Starting') {
@@ -29,6 +32,7 @@ pipeline {
     post
     {
         success{
+            sh "tar -zcvf ./reports/html.tar.gz html"
             emailext (
                     attachLog: true, attachmentsPattern: "**/reports/html/index.html",
                     mimeType: 'text/html',
