@@ -7,10 +7,10 @@ pipeline {
         stage('Starting') {
             steps {
                 script {
-                    env.TEST = "Silicon Labs"
+                    env.TEST = "Cargolink Labs"
                     echo env.TEST
-                    echo 'Hello World'
-                    echo 'Cypress Run test #1'
+                    echo 'Ready to test!'
+                    echo 'Cypress Run Test'
                 }
             }
         }
@@ -31,7 +31,7 @@ pipeline {
     {
         success{
             emailext (
-                    attachLog: true, attachmentsPattern: 'reports.zip',
+                    attachLog: true, attachmentsPattern: 'reports.zip' '**/reports/html/index.html',
                     mimeType: '*',
                     body: 'Pipeline run success!!',                         
                     subject: 'Pipiline result report', to: 'vulong265@gmail.com')
