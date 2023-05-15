@@ -23,15 +23,15 @@ pipeline {
             steps {
                 bat "npx cypress install"
                 bat "npm run html-report"
+                powershell 'Compress-Archive -Force "./cypress/reports/html" reports.zip'
             }
         }
     }
     post
     {
         success{
-            powershell 'Compress-Archive -Force "./cypress/reports/html" reports.zip'
             emailext (
-                    attachLog: true, attachmentsPattern: "reports.zip",
+                    attachLog: true, attachmentsPattern: 'reports.zip',
                     mimeType: '*',
                     body: 'Pipeline run success!!',                         
                     subject: 'Pipiline result report', to: 'vulong265@gmail.com')
