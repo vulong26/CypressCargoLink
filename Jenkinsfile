@@ -34,7 +34,7 @@ pipeline {
                     attachLog: true,
                     attachmentsPattern: '**/reports/html/assets/**.js, **/reports/html/index.html',
                     mimeType: '*',
-                    body: 'Pipeline run success!!',                         
+                    body: '<div>Pipiline pass without error!<div>!!',                         
                     subject: 'Pipiline result report', to: 'vulong265@gmail.com')
         }
         failure{
