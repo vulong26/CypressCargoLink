@@ -35,7 +35,7 @@ pipeline {
                     attachLog: true,
                     attachmentsPattern: '**/reports/html/index.html',
                     mimeType: 'text/html',
-                    body: '${FILE, path="./cypress/reports/html/index.html"}',                         
+                    body: '${FILE, path="%cd%/cypress/reports/html/index.html"}',                         
                     subject: 'Pipiline result report', to: 'vulong265@gmail.com')
         }
         success{
