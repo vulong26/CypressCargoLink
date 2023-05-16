@@ -29,14 +29,21 @@ pipeline {
             }
         }
     }
-    post
-    {
+    post{
+        always{
+            emailext (
+                    attachLog: true,
+                    attachmentsPattern: '**/reports/html/index.html',
+                    mimeType: 'text/html',
+                    body: '${FILE, path="index.html"}',                         
+                    subject: 'Pipiline result report', to: 'vulong265@gmail.com')
+        }
         success{
             emailext (
                     attachLog: true,
                     attachmentsPattern: '**/reports/html/index.html',
                     mimeType: 'text/html',
-                    body: readFile("cypress/reports/html/index.html"),                         
+                    body: '${FILE,path="cypress/reports/html/index.html"}',                         
                     subject: 'Pipiline result report', to: 'vulong265@gmail.com')
         }
         failure{
