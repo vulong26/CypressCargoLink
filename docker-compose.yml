@@ -1,0 +1,7 @@
+version: '3.5'
+services:
+  web:
+    build: .
+
+    command: >
+      bash -c " npx cypress run --spec cypress/e2e/tests/LoginFlow.spec.cy.ts"
