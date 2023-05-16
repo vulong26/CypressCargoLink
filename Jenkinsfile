@@ -14,6 +14,7 @@ pipeline {
                     echo 'Ready to test!'
                     echo 'Cypress Run Test'
                 }
+                bat "./mvnw clean install site surefire-report:report"
             }
         }
         stage('Install Dependencies') {
@@ -38,14 +39,15 @@ pipeline {
                     attachLog: true,
                     mimeType: 'text/html',
                     body: '${FILE,path="cypress/reports/html/index.html"}',                         
-                    subject: 'Pipiline Success report', to: 'doanlong2023@gmail.com')
+                    subject: '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!', to: 'doanlong2023@gmail.com')
         }
         failure{
             emailext (
                     attachLog: true, attachmentsPattern: "**/reports/html/index.html",
                     mimeType: 'text/html',
-                    body: 'Pipeline run fail. Please check code soon!',                         
-                    subject: 'Pipiline fail by recently commit!', to: 'doanlong2023@gmail.com')
+                    body: '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS:
+                    Check console output at $BUILD_URL to view the results.',                         
+                    subject: '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!', to: 'doanlong2023@gmail.com')
         }
     }
 }
