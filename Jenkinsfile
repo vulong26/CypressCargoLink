@@ -34,7 +34,7 @@ pipeline {
         success{
             emailext (
                     attachLog: true,
-                    attachmentsPattern: '**/reports/html* ,**/reports/html/assests*',
+                    attachmentsPattern: '**/reports/html/index.html',
                     mimeType: '''${SCRIPT, template = "emailTest1-html.template"}''',
                     body: '<div>Pipiline pass without error!<div>!!',                         
                     subject: 'Pipiline result report', to: 'vulong265@gmail.com')
@@ -44,7 +44,7 @@ pipeline {
                     attachLog: true, attachmentsPattern: "**/reports/html/index.html",
                     mimeType: 'text/html',
                     body: 'Pipeline run fail. Please check code soon!',                         
-                    subject: 'Pipiline result report', to: 'vulong265@gmail.com')
+                    subject: 'Pipiline fail by recently commit!', to: 'vulong265@gmail.com')
         }
     }
 }
