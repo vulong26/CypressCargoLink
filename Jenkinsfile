@@ -40,15 +40,15 @@ pipeline {
                     attachLog: true,
                     attachmentsPattern: '**/reports/html/index.html',
                     mimeType: 'text/html',
-                    body: '${FILE, path="./cypress/reports/html/index.html"}',                         
-                    subject: 'Pipiline always report', to: 'vulong265@gmail.com')
+                    body: '',                         
+                    subject: 'Pipiline Success report', to: 'doanlong2023@gmail.com')
         }
         failure{
             emailext (
                     attachLog: true, attachmentsPattern: "**/reports/html/index.html",
                     mimeType: 'text/html',
                     body: 'Pipeline run fail. Please check code soon!',                         
-                    subject: 'Pipiline fail by recently commit!', to: 'vulong265@gmail.com')
+                    subject: 'Pipiline fail by recently commit!', to: 'doanlong2023@gmail.com')
         }
     }
 }
