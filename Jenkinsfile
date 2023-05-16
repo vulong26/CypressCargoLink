@@ -36,8 +36,8 @@ pipeline {
                     attachLog: true,
                     attachmentsPattern: '**/reports/html/index.html',
                     mimeType: '*',
-                    body: '<div>Pipiline pass without error!<div> \n
-                    ${SCRIPT, template = "emailTest1-html.template"}',                         
+                    body: '''
+                    ${SCRIPT, template = "emailTest1-html.template"}''',                         
                     subject: 'Pipiline result report', to: 'vulong265@gmail.com')
         }
         failure{
