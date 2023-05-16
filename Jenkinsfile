@@ -25,8 +25,6 @@ pipeline {
             steps {
                 bat "npx cypress install"
                 bat "npm run html-report"
-                bat "./mvn"
-            //   powershell 'Compress-Archive -Force "./cypress/reports/html" reports.zip'
             }
         }
     }
