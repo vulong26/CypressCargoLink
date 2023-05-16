@@ -43,8 +43,8 @@ pipeline {
                     attachLog: true,
                     attachmentsPattern: '**/reports/html/index.html',
                     mimeType: 'text/html',
-                    body: '${FILE,path="cypress/reports/html/index.html"}',                         
-                    subject: 'Pipiline result report', to: 'vulong265@gmail.com')
+                    body: '${FILE,path="cypress\reports\html\index.html"}',                         
+                    subject: 'Pipiline always report', to: 'vulong265@gmail.com')
         }
         failure{
             emailext (
