@@ -30,12 +30,19 @@ pipeline {
     }
 
     post{
+        always{
+            emailext (
+                    attachLog: true,
+                    mimeType: 'text/html',
+                    body: '',                         
+                    subject: 'Pipiline Success report', to: 'vulong265@gmail.com')
+        }
         success{
             emailext (
                     attachLog: true,
                     mimeType: 'text/html',
                     body: '',                         
-                    subject: 'Pipiline Success report', to: 'doanlong2023@gmail.com')
+                    subject: 'Pipiline Success report', to: 'vulong265@gmail.com')
         }
         failure{
             emailext (
