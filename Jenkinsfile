@@ -1,12 +1,14 @@
 pipeline {
     triggers {
         cron('H 0 * * 0')
-    }
+    } 
     agent any 
     stages {
         stage('Starting') {
-            steps {
-                script {
+            steps 
+            {
+                script 
+                {
                     env.TEST = "Cargolink Labs"
                     echo env.TEST
                     echo 'Ready to test!'
@@ -33,7 +35,7 @@ pipeline {
             emailext (
                     attachLog: true,
                     attachmentsPattern: '**/reports/html/index.html',
-                    mimeType: '*',
+                    mimeType: 'text/html',
                     body: '<div>Pipiline pass without error!<div>!!',                         
                     subject: 'Pipiline result report', to: 'vulong265@gmail.com')
         }
