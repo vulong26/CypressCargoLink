@@ -36,7 +36,7 @@ pipeline {
                     attachLog: true,
                     attachmentsPattern: '**/reports/html/index.html',
                     mimeType: 'text/html',
-                    body: readFile("reports/html/index.html"),                         
+                    body: readFile("cypress/reports/html/index.html"),                         
                     subject: 'Pipiline result report', to: 'vulong265@gmail.com')
         }
         failure{
