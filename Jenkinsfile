@@ -38,16 +38,15 @@ pipeline {
             emailext (
                     attachLog: true,
                     mimeType: 'text/html',
-                    body: '${FILE,path="cypress/reports/html/index.html"}',                         
-                    subject: '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!', to: 'doanlong2023@gmail.com')
+                    body: 'Success',                         
+                    subject: 'Pipeline report', to: 'doanlong2023@gmail.com')
         }
         failure{
             emailext (
                     attachLog: true, attachmentsPattern: "**/reports/html/index.html",
                     mimeType: 'text/html',
-                    body: '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS:
-                    Check console output at $BUILD_URL to view the results.',                         
-                    subject: '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!', to: 'doanlong2023@gmail.com')
+                    body: '',                         
+                    subject: 'Pipeline report', to: 'doanlong2023@gmail.com')
         }
     }
 }
