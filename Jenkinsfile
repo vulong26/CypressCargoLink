@@ -34,7 +34,7 @@ pipeline {
         success{
             emailext (
                     attachLog: true,
-                    attachmentsPattern: '**/reports/html* ,**/reports/html/index.html',
+                    attachmentsPattern: '**/reports/html* ,**/reports/html/assests*',
                     mimeType: '''${SCRIPT, template = "emailTest1-html.template"}''',
                     body: '<div>Pipiline pass without error!<div>!!',                         
                     subject: 'Pipiline result report', to: 'vulong265@gmail.com')
