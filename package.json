@@ -24,5 +24,10 @@
     "mochawesome-merge": "^4.3.0",
     "mochawesome-report-generator": "^6.2.0",
     "typescript": "^4.9.4"
+  },
+  "dependencies": {
+    "adm-zip": "^0.5.10",
+    "email-templates": "^11.0.3",
+    "nodemailer": "^6.9.2"
   }
 }
