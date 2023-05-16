@@ -2,8 +2,6 @@ pipeline {
     triggers {
         cron('H 0 * * 0')
     } 
-    def emailBody = '${SCRIPT, template="regressionfailed.groovy"}'
-    def emailSubject = "${env.JOB_NAME} - Build# ${env.BUILD_NUMBER} - ${env.BUILD_STATUS}"
     agent any 
     stages {
         stage('Starting') {
@@ -38,7 +36,7 @@ pipeline {
                     attachLog: true,
                     attachmentsPattern: '**/reports/html/index.html',
                     mimeType: '*',
-                    body: 'Pipeline run success! emailBody',                         
+                    body: 'readFile("reports/html/index.html")',                         
                     subject: 'Pipiline result report', to: 'vulong265@gmail.com')
         }
         failure{
