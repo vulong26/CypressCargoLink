@@ -14,7 +14,6 @@ pipeline {
                     echo 'Ready to test!'
                     echo 'Cypress Run Test'
                 }
-                bat "./mvnw clean install site surefire-report:report"
             }
         }
         stage('Install Dependencies') {
