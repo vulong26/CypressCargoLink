@@ -30,19 +30,15 @@ pipeline {
     }
 
     post{
-        always{
-            emailext (
-                    attachLog: true,
-                    mimeType: 'text/html',
-                    body: '',                         
-                    subject: 'Pipiline Success report', to: 'vulong265@gmail.com')
-        }
         success{
+            publishHTML(
+                        [allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'cypress/reports/html',
+                        reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
             emailext (
                     attachLog: true,
                     mimeType: 'text/html',
-                    body: '',                         
-                    subject: 'Pipiline Success report', to: 'vulong265@gmail.com')
+                    body: '${FILE,path="cypress/reports/html/index.html"}',                         
+                    subject: 'Pipiline Success report', to: 'doanlong2023@gmail.com')
         }
         failure{
             emailext (
