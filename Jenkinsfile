@@ -24,7 +24,7 @@ pipeline {
         stage('Run Tests') {
             steps {
                 bat "npx cypress install"
-                bat "npm run test:data"
+                bat "npm run html-report"
             //   powershell 'Compress-Archive -Force "./cypress/reports/html" reports.zip'
             }
         }
