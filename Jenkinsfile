@@ -20,15 +20,12 @@ pipeline {
         }
         stage('Push to Docker') {
             steps {
-                bat "docker-compose up"
+                bat "docker-compose -f C:\\Users\\Dell\\Desktop\\DATN\\CypressCargoLink\\docker-compose.yml up"
             }
         }
     }
 
-    post{
-        always {
-            bat "docker logout"
-        }
+    post{   
         success{
             publishHTML(
                         [allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'cypress/reports/html',
