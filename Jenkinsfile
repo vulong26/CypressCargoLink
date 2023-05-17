@@ -33,7 +33,7 @@ pipeline {
         }
         stage('Push to Docker') {
             steps {
-                bat "echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u vulong26 --password-stdin"
+                bat "echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin"
                 bat "docker push docker/dp-alpine:lastest"
             }
         }
