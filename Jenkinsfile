@@ -40,6 +40,9 @@ pipeline {
     }
 
     post{
+        always {
+            bat "docker logout"
+        }
         success{
             publishHTML(
                         [allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'cypress/reports/html',
