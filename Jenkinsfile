@@ -3,8 +3,11 @@ pipeline {
         cron('H 0 * * 0')
     } 
     agent any 
+    environment {
+        DOCKERHUB_CREDENTIALS = credentials('jenkins-docker')
+    }
     stages {
-        stage('Starting') {
+        stage('Build') {
             steps 
             {
                 script 
@@ -14,6 +17,7 @@ pipeline {
                     echo 'Ready to test!'
                     echo 'Cypress Run Test'
                 }
+                bat 'docker build -t docker/dp-alpine:lastest .'
             }
         }
         stage('Install Dependencies') {
@@ -25,6 +29,12 @@ pipeline {
             steps {
                 bat "npx cypress install"
                 bat "npm run html-report"
+            }
+        }
+        stage('Push to Docker') {
+            steps {
+                bat "echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdir"
+                bat "docker push docker/dp-alpine:lastest"
             }
         }
     }
