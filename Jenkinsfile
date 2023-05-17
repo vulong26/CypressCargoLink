@@ -20,9 +20,7 @@ pipeline {
         }
         stage('Push to Docker') {
             steps {
-                bat 'docker build -t vulong26/dp-alpine:lastest .'
-                bat "echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin"
-                bat "docker push vulong26/dp-alpine:lastest"
+                bat "docker-compose up"
             }
         }
     }
