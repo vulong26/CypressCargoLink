@@ -4,7 +4,7 @@ pipeline {
     } 
     agent any 
     environment {
-        DOCKERHUB_CREDENTIALS = credentials('jenkins-docker')
+        DOCKERHUB_CREDENTIALS = credentials('vulong26-dockerhub')
     }
     stages {
         stage('Build') {
@@ -17,7 +17,7 @@ pipeline {
                     echo 'Ready to test!'
                     echo 'Cypress Run Test'
                 }
-                bat 'docker build -t docker/dp-alpine:lastest .'
+                bat 'docker build -t vulong26/dp-alpine:lastest .'
             }
         }
         stage('Install Dependencies') {
@@ -34,7 +34,7 @@ pipeline {
         stage('Push to Docker') {
             steps {
                 bat "echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin"
-                bat "docker push docker/dp-alpine:lastest"
+                bat "docker push vulong26/dp-alpine:lastest"
             }
         }
     }
