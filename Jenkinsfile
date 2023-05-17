@@ -7,19 +7,6 @@ pipeline {
         DOCKERHUB_CREDENTIALS = credentials('vulong26-dockerhub')
     }
     stages {
-        stage('Build') {
-            steps 
-            {
-                script 
-                {
-                    env.TEST = "Cargolink Labs"
-                    echo env.TEST
-                    echo 'Ready to test!'
-                    echo 'Cypress Run Test'
-                }
-                bat 'docker build -t vulong26/dp-alpine:lastest .'
-            }
-        }
         stage('Install Dependencies') {
             steps {
                 bat "npm i"
@@ -33,7 +20,8 @@ pipeline {
         }
         stage('Push to Docker') {
             steps {
-                bat "echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin"
+                bat 'docker build -t vulong26/dp-alpine:lastest .'
+                bat "echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR "
                 bat "docker push vulong26/dp-alpine:lastest"
             }
         }
