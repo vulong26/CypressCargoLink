@@ -6,8 +6,6 @@ pipeline {
     environment {
         DOCKERHUB_CREDENTIALS = credentials('vulong26-dockerhub')
     }
-    PRO_ROOT = "C:\\Users\\Dell\\Desktop\\DATN\\CypressCargoLink\\docker-compose.yml"
-    CMD_TO_PUSH = 'up'
     stages {
         stage('Install Dependencies') {
             steps {
