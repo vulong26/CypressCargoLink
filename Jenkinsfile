@@ -33,15 +33,15 @@ pipeline {
             emailext (
                     attachLog: true,
                     mimeType: 'text/html',
-                    body: 'Success',                         
-                    subject: 'Pipeline report', to: 'doanlong2023@gmail.com')
+                    body: 'Success build! Ready push to environments',                         
+                    subject: 'Pipeline Success Report', to: 'doanlong2023@gmail.com')
         }
         failure{
             emailext (
                     attachLog: true, attachmentsPattern: "**/reports/html/index.html",
                     mimeType: 'text/html',
-                    body: '',                         
-                    subject: 'Pipeline report', to: 'doanlong2023@gmail.com')
+                    body: 'Pipeline fail! Please check recently commit',                         
+                    subject: 'Pipeline Failure Report', to: 'doanlong2023@gmail.com')
         }
     }
 }
