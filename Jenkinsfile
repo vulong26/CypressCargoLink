@@ -22,7 +22,7 @@ pipeline {
         }
         stage('Push to Docker') {
             steps {
-                bat "docker-compose -f ${PRO_ROOT} ${CMD_TO_PUSH}"
+                bat "docker-compose -f C:\\Users\\Dell\\Desktop\\DATN\\CypressCargoLink\\docker-compose.yml up"
             }
         }
     }
