@@ -6,8 +6,8 @@ pipeline {
     environment {
         DOCKERHUB_CREDENTIALS = credentials('vulong26-dockerhub')
     }
-    def PRO_ROOT = "C:\\Users\\Dell\\Desktop\\DATN\\CypressCargoLink\\docker-compose.yml"
-    def CMD_TO_PUSH = 'up'
+    PRO_ROOT = "C:\\Users\\Dell\\Desktop\\DATN\\CypressCargoLink\\docker-compose.yml"
+    CMD_TO_PUSH = 'up'
     stages {
         stage('Install Dependencies') {
             steps {
