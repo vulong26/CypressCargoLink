@@ -33,7 +33,7 @@ pipeline {
             //     }
             //     }
               //  bat "docker-compose -f C:\\Users\\Dell\\Desktop\\DATN\\CypressCargoLink\\docker-compose.yml up"
-            }
+            // }
         }
     }
     post{   
