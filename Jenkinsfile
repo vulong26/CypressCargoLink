@@ -23,7 +23,7 @@ pipeline {
         stage('Push to Docker') {
             steps {
                   
-                    bat "docker push vulong26/dp-cargolink:lastest"
+                    bat "docker push vulong26/cargolink:lastest"
          }
         }
     }
