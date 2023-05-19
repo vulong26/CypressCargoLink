@@ -7,26 +7,32 @@ pipeline {
         DOCKERHUB_CREDENTIALS = credentials('vulong26-dockerhub')
     }
     stages {
-        stage('Install Dependencies') {
-            steps {
-                bat "npm i"
-            }
-        }
-        stage('Run Tests') {
-            steps {
-                bat "npx cypress install"
-                bat "npm run html-report"
-            }
-        }
+        // stage('Install Dependencies') {
+        //     steps {
+        //         bat "npm i"
+        //     }
+        // }
+        // stage('Run Tests') {
+        //     steps {
+        //         bat "npx cypress install"
+        //         bat "npm run html-report"
+        //     }
+        // }
         stage('Push to Docker') {
             steps {
-                    bat 'docker build -t dp-alpine:lastest .'
-                    bat "echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR -p $DOCKERHUB_CREDENTIALS_PSW docker.io"
-                    bat "docker push dp-alpine:lastest"
+                    dockerImage = docker.build("monishavasu/my-react-app:latest")
          }
+        }
+        stage{
+                    withDockerRegistry([ credentialsId: "vulong26-dockerhub", url: "" ]) {
+        dockerImage.push()
+        }
         }
     }
     post{   
+        always{
+            bat "docker logout"
+        }
         success{
             publishHTML(
                         [allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'cypress/reports/html',
