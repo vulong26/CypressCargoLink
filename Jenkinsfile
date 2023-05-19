@@ -7,26 +7,27 @@ pipeline {
         DOCKERHUB_CREDENTIALS = credentials('vulong26-dockerhub')
     }
     stages {
-        // stage('Install Dependencies') {
-        //     steps {
-        //         bat "npm i"
-        //     }
-        // }
-        // stage('Run Tests') {
-        //     steps {
-        //         bat "npx cypress install"
-        //         bat "npm run html-report"
-        //     }
-        // }
+        stage('Install Dependencies') {
+            steps {
+                bat "npm i"
+            }
+        }
+        stage('Run Tests') {
+            steps {
+                // bat "npx cypress install"
+                // bat "npm run html-report"
+                dockerImage = docker.build("docker/my-app:latest")
+            }
+        }
         stage('Push to Docker') {
             steps {
-                    dockerImage = docker.build("monishavasu/my-react-app:latest")
+                withDockerRegistry([ credentialsId: "vulong26-dockerhub", url: "" ]) {
+                dockerImage.push()
+        }
          }
         }
         stage{
-                    withDockerRegistry([ credentialsId: "vulong26-dockerhub", url: "" ]) {
-        dockerImage.push()
-        }
+                    
         }
     }
     post{   
