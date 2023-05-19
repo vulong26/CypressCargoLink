@@ -3,9 +3,9 @@ pipeline {
         cron('H 0 * * 0')
     } 
     agent any 
-    environment {
-        DOCKERHUB_CREDENTIALS = credentials('vulong26-dockerhub')
-    }
+    // environment {
+    //     DOCKERHUB_CREDENTIALS = credentials('vulong26-dockerhub')
+    // }
     stages {
         stage('Install Dependencies') {
             steps {
@@ -20,11 +20,15 @@ pipeline {
         }
         stage('Push to Docker') {
             steps {
-                bat "docker-compose -f C:\\Users\\Dell\\Desktop\\DATN\\CypressCargoLink\\docker-compose.yml up"
+                withCredentials([usernamePassword(credentialsId: 'vulong26-dockerhub', usernameVariable: 'DOCKERHUB_CREDENTIALS_USR', passwordVariable: 'DOCKERHUB_CREDENTIALS_PSW')]) {
+                bat 'docker build -t docker/dp-alpine:lastest .'
+                bat "echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin"
+                bat "docker push docker/dp-alpine:lastest"
+                }
+              //  bat "docker-compose -f C:\\Users\\Dell\\Desktop\\DATN\\CypressCargoLink\\docker-compose.yml up"
             }
         }
     }
-
     post{   
         success{
             publishHTML(
