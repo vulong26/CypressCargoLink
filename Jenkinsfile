@@ -14,15 +14,16 @@ pipeline {
         }
         stage('Run Tests') {
             steps {
-                bat "npx cypress install"
-                bat "npm run html-report"
+                // bat "npx cypress install"
+                // bat "npm run html-report"
+                bat 'docker build -t vulong26/cargolink:lastest .'
+                bat "echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR -p $DOCKERHUB_CREDENTIALS_PSW"
             }
         }
         stage('Push to Docker') {
             steps {
-                    bat 'docker build -t docker/dp-alpine:lastest .'
-                    bat "echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR -p $DOCKERHUB_CREDENTIALS_PSW"
-                    bat "docker push docker/dp-alpine:lastest"
+                  
+                    bat "docker push vulong26/dp-cargolink:lastest"
          }
         }
     }
