@@ -20,13 +20,18 @@ pipeline {
         }
         stage('Push to Docker') {
             steps {
-                script{
-                withCredentials([usernamePassword(credentialsId: 'vulong26-dockerhub', usernameVariable: 'DOCKERHUB_CREDENTIALS_USR', passwordVariable: 'DOCKERHUB_CREDENTIALS_PSW')]) {
-                bat 'docker build -t docker/dp-alpine:lastest .'
-                bat "echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin"
-                bat "docker push docker/dp-alpine:lastest"
-                }
-                }
+                      withCredentials([string(credentialsId: 'vulong26-dockerhub', variable: 'dockerpwd')]) {
+                    bat "docker login -u vulong26 -p ${dockerpwd}"
+            }
+        }
+
+            // script {
+            //     withCredentials([usernamePassword(credentialsId: 'vulong26-dockerhub', usernameVariable: 'DOCKERHUB_CREDENTIALS_USR', passwordVariable: 'DOCKERHUB_CREDENTIALS_PSW')]) {
+            //     bat 'docker build -t docker/dp-alpine:lastest .'
+            //     // bat "echo $DOCKERHUB_CREDENTIALS_PSW | docker login $DOCKERHUB_CREDENTIALS_USR --password-stdin"
+            //     bat "docker push docker/dp-alpine:lastest"
+            //     }
+            //     }
               //  bat "docker-compose -f C:\\Users\\Dell\\Desktop\\DATN\\CypressCargoLink\\docker-compose.yml up"
             }
         }
