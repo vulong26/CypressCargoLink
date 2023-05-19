@@ -14,20 +14,16 @@ pipeline {
         }
         stage('Run Tests') {
             steps {
-                // bat "npx cypress install"
-                // bat "npm run html-report"
-                dockerImage = docker.build("docker/my-app:latest")
+                bat "npx cypress install"
+                bat "npm run html-report"
             }
         }
         stage('Push to Docker') {
             steps {
-                withDockerRegistry([ credentialsId: "vulong26-dockerhub", url: "" ]) {
-                dockerImage.push()
-        }
+                    bat 'docker build -t docker/dp-alpine:lastest .'
+                    bat "echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR -p $DOCKERHUB_CREDENTIALS_PSW docker.io"
+                    bat "docker push docker/dp-alpine:lastest"
          }
-        }
-        stage{
-                    
         }
     }
     post{   
