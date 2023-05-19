@@ -20,7 +20,7 @@ pipeline {
         }
         stage('Push to Docker') {
             steps {
-                    bat 'docker build -t docker/dp-alpine:lastest .'
+                    bat 'docker build -t dp-alpine:lastest .'
                     bat "echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR -p $DOCKERHUB_CREDENTIALS_PSW docker.io"
                     bat "docker push dp-alpine:lastest"
          }
