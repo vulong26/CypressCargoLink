@@ -3,9 +3,9 @@ pipeline {
         cron('H 0 * * 0')
     } 
     agent any 
-    // environment {
-    //     DOCKERHUB_CREDENTIALS = credentials('vulong26-dockerhub')
-    // }
+    environment {
+        DOCKERHUB_CREDENTIALS = credentials('vulong26-dockerhub')
+    }
     stages {
         stage('Install Dependencies') {
             steps {
