@@ -23,7 +23,6 @@ pipeline {
                 branch 'BR01-Login-e2e-test'
             }
             steps {
-                when
                 bat 'docker build -t vulong26/cargolink:lastest .'
                 bat "echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR -p $DOCKERHUB_CREDENTIALS_PSW"
                 bat "docker push vulong26/cargolink:lastest"
