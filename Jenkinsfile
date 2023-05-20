@@ -10,19 +10,18 @@ pipeline {
         stage('Inital Project') {
             steps {
                 bat "npm i"
-                bat 'docker build -t vulong26/cargolink:lastest .'
+                
             }
         }
         stage('Run Tests') {
-            steps {
+            steps {                
                 bat "npx cypress install"
                 bat "npm run html-report"
             }
         }
         stage('Push to Docker') {
             steps {
-                bat "echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR -p $DOCKERHUB_CREDENTIALS_PSW"
-                bat "docker push vulong26/cargolink:lastest"
+                bat "echo Build pass to push"
          }
         }
     }
@@ -31,6 +30,11 @@ pipeline {
             bat "docker logout"
         }
         success{
+            script{
+                bat 'docker build -t vulong26/cargolink:lastest .'
+                bat "echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR -p $DOCKERHUB_CREDENTIALS_PSW"
+                bat "docker push vulong26/cargolink:lastest"
+            }
             publishHTML(
                         [allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'cypress/reports/html',
                         reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
