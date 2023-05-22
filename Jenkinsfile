@@ -41,16 +41,19 @@ pipeline {
             emailext (
                     attachLog: true,
                     mimeType: 'text/html',
-                    body: 'Success build! Ready push to environments',                         
-                    subject: "Pipeline ${currentBuild.currentResult} in ${env.BUILD_NUMBER} of ${env.BRANCH_NAME}", to: 'doanlong2023@gmail.com')
+                    body: "<p>Pipeline ${currentBuild.currentResult}! Please check recently commit.</p> \
+                    <div> Click to ${env.JOB_URL}/ to see more <div/>",                         
+                    subject: "Pipeline ${currentBuild.currentResult} in ${env.BUILD_NUMBER} of ${env.BRANCH_NAME}",
+                    to: 'doanlong2023@gmail.com')
         }
         failure{
             emailext (
                     attachLog: true, attachmentsPattern: "**/reports/html/index.html",
                     mimeType: 'text/html',
-                    body: "<p>Pipeline fail! Please check recently commit.</p> \
+                    body: "<p>Pipeline ${currentBuild.currentResult}! Please check recently commit.</p> \
                     <div> Click to ${env.JOB_URL}/ to see more <div/>",                         
-                    subject: "Pipeline Failure in ${env.BUILD_NUMBER} of ${env.BRANCH_NAME}", to: 'doanlong2023@gmail.com')
+                    subject: "Pipeline ${currentBuild.currentResult} in ${env.BUILD_NUMBER} of branch ${env.BRANCH_NAME}",
+                     to: 'doanlong2023@gmail.com')
         }
     }
 }
