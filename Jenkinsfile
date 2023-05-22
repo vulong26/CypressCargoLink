@@ -11,7 +11,7 @@ pipeline {
         stage('Inital Project') {
             steps {
                 bat "npm i"
-                bat "env | sort"
+                bat '${env.GIT_BRANCH}'
             }
         }
         stage('Run Tests') {
