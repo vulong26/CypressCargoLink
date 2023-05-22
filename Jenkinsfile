@@ -42,7 +42,7 @@ pipeline {
                     attachLog: true,
                     mimeType: 'text/html',
                     body: "<p>Pipeline ${currentBuild.currentResult}! Please check recently commit.</p> \
-                    <div> Click to ${env.JOB_URL}/ to see more <div/>",                         
+                    <div> Click to ${env.JOB_URL}/${env.BUILD_NUMBER} to see more <div/>",                         
                     subject: "Pipeline ${currentBuild.currentResult} in ${env.BUILD_NUMBER} of ${env.BRANCH_NAME}",
                     to: 'doanlong2023@gmail.com')
         }
@@ -51,7 +51,7 @@ pipeline {
                     attachLog: true, attachmentsPattern: "**/reports/html/index.html",
                     mimeType: 'text/html',
                     body: "<p>Pipeline ${currentBuild.currentResult}! Please check recently commit.</p> \
-                    <div> Click to ${env.JOB_URL}/ to see more <div/>",                         
+                    <div> Click to ${env.JOB_URL}/${env.BUILD_NUMBER} to see more <div/>",                         
                     subject: "Pipeline ${currentBuild.currentResult} in ${env.BUILD_NUMBER} of branch ${env.BRANCH_NAME}",
                      to: 'doanlong2023@gmail.com')
         }
