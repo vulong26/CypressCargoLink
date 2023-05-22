@@ -42,7 +42,7 @@ pipeline {
                     attachLog: true,
                     mimeType: 'text/html',
                     body: 'Success build! Ready push to environments',                         
-                    subject: "Pipeline ${currentBuild.currentResul} in ${env.BUILD_NUMBER} of ${env.BRANCH_NAME}", to: 'doanlong2023@gmail.com')
+                    subject: "Pipeline ${currentBuild.currentResult} in ${env.BUILD_NUMBER} of ${env.BRANCH_NAME}", to: 'doanlong2023@gmail.com')
         }
         failure{
             emailext (
