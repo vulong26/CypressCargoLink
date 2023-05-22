@@ -39,9 +39,9 @@ pipeline {
             emailext (
                     attachLog: true,
                     mimeType: 'text/html',
-                    body: "<p text-align: center >Pipeline ${currentBuild.currentResult}! Please check recently commit.</p> \
-                    <div text-align: center > Click to ${env.JOB_URL}${env.BUILD_NUMBER}/console to see more <div/> \
-                    <div text-align: center > Open build log below to quick check!! <div/>",                         
+                    body: "<p>Pipeline ${currentBuild.currentResult}! Please check recently commit.</p> \
+                    <div> Click to ${env.JOB_URL}${env.BUILD_NUMBER}/console to see more <div/> \
+                    <div> Open build log below to quick check!! <div/>",                         
                     subject: "Pipeline ${currentBuild.currentResult} in build ${env.BUILD_NUMBER} of branch ${env.BRANCH_NAME}",
                     to: 'doanlong2023@gmail.com')
         }
