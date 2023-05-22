@@ -4,12 +4,14 @@ pipeline {
     } 
     agent any 
     environment {
+
         DOCKERHUB_CREDENTIALS = credentials('vulong26-dockerhub')
     }
     stages {
         stage('Inital Project') {
             steps {
                 bat "npm i"
+                bat "env | sort"
             }
         }
         stage('Run Tests') {
