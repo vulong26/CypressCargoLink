@@ -48,7 +48,7 @@ pipeline {
             emailext (
                     attachLog: true, attachmentsPattern: "**/reports/html/index.html",
                     mimeType: 'text/html',
-                    body: "<p>Pipeline fail! Please check recently commit.</p> \n
+                    body: "<p>Pipeline fail! Please check recently commit.</p> ''\n''
                     <div> Click to ${env.JOB_URL}/ to see more <div/>",                         
                     subject: "Pipeline Failure in ${env.BUILD_NUMBER} of ${env.BRANCH_NAME}", to: 'doanlong2023@gmail.com')
         }
