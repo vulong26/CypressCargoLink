@@ -33,8 +33,7 @@ pipeline {
     post{   
         always{
             bat "docker logout"
-        }
-        success{
+
             publishHTML(
                         [allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'cypress/reports/html',
                         reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
@@ -47,16 +46,5 @@ pipeline {
                     subject: "Pipeline ${currentBuild.currentResult} in build ${env.BUILD_NUMBER} of branch ${env.BRANCH_NAME}",
                     to: 'doanlong2023@gmail.com')
         }
-        failure{
-            emailext (
-                    attachLog: true,
-                    mimeType: 'text/html',
-                    body: "<p>Pipeline ${currentBuild.currentResult}! Please check recently commit.</p> \
-                    <div> Click to ${env.JOB_URL}${env.BUILD_NUMBER}/console to see more <div/> \
-                    <div> Open build log below to quick check!! <div/>",                         
-                    subject: "Pipeline ${currentBuild.currentResult} in build ${env.BUILD_NUMBER} of branch ${env.BRANCH_NAME}",
-                    to: 'doanlong2023@gmail.com')
-        }
-
     }
 }
