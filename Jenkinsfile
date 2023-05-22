@@ -1,6 +1,6 @@
 pipeline {
     triggers {
-        cron('H 0 * * 0')
+        cron('0 20,22 * * *')
     } 
     agent any 
     environment {
@@ -18,7 +18,7 @@ pipeline {
                 bat "npm run html-report"
             }
         }
-        stage('Push to Docker') {
+        stage('Push to DockerHub') {
             when {
                 branch 'BR01-Login-e2e-test'
             }
