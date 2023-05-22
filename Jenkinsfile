@@ -4,14 +4,12 @@ pipeline {
     } 
     agent any 
     environment {
-
         DOCKERHUB_CREDENTIALS = credentials('vulong26-dockerhub')
     }
     stages {
         stage('Inital Project') {
             steps {
                 bat "npm i"
-                bat "${env.GIT_BRANCH} or ${env.BRANCH_NAME}"
             }
         }
         stage('Run Tests') {
@@ -44,14 +42,15 @@ pipeline {
                     attachLog: true,
                     mimeType: 'text/html',
                     body: 'Success build! Ready push to environments',                         
-                    subject: 'Pipeline Success Report ${env.BRANCH_NAME}', to: 'doanlong2023@gmail.com')
+                    subject: "Pipeline ${currentBuild.currentResul} in ${env.BUILD_NUMBER} of ${env.BRANCH_NAME}", to: 'doanlong2023@gmail.com')
         }
         failure{
             emailext (
                     attachLog: true, attachmentsPattern: "**/reports/html/index.html",
                     mimeType: 'text/html',
-                    body: 'Pipeline fail! Please check recently commit',                         
-                    subject: '''Pipeline Failure Report for ${env.BRANCH_NAME}''', to: 'doanlong2023@gmail.com')
+                    body: "<p>Pipeline fail! Please check recently commit.</p>
+                    <div> Click to ${env.JOB_URL}/ to see more <div/>",                         
+                    subject: "Pipeline Failure in ${env.BUILD_NUMBER} of ${env.BRANCH_NAME}", to: 'doanlong2023@gmail.com')
         }
     }
 }
