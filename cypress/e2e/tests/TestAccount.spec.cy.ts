@@ -10,7 +10,7 @@ describe('Test data account', function(){
     })
     carrierAccounts.forEach((data: any) => {
         if(data.type == 'carrier'){
-            it(`Login with ${data.name} account`, function(){
+            it(`Login as ${data.type} with ${data.name} account`, function(){
                 carrier.elements.carrierOpts().click()
                 carrier.clickContinue()
                 carrier.elements.phoneTextBox().type(data.phoneNumber)

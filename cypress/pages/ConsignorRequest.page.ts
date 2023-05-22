@@ -55,7 +55,13 @@ export class consignorRequest{
         contactNumberTB: () => cy.xpath('//input[@aria-label="Số di động người liên hệ"]'),
         noteField: () => cy.xpath('//div[contains(text(),"Ghép chuyến")]/parent::div/parent::div'),
     } 
+    warning = {
+        typeCargoWarning: () => cy.xpath('//div[contains(text(),"Đề nghị nhập Loại hàng hóa")]'),
+        unitSBWarning: () => cy.xpath('//div[contains(text(),"Đề nghị nhập Đơn vị tính")]'),
+        quantityWarning: () => cy.xpath('//div[contains(text(),"Số lượng hàng phải là số nguyên và lớn hơn không.")]'),
+        weightWarning: () => cy.xpath('//div[contains(text(),"Đề nghị nhập trọng lượng hàng")]'),
 
+    }
     clickToCreateRequest(){
         this.contact.createRequestBtn().click()
     } 

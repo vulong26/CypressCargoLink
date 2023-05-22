@@ -1,6 +1,3 @@
-import { find } from "cypress/types/lodash";
-import { HomePage } from "./homepage.page";
-
 export class carrierLogin{
     elements = {
         loginBtn : () => cy.get('[datatest]'),

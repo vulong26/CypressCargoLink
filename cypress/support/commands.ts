@@ -14,7 +14,6 @@ Cypress.Commands.add('consignorLogin', () => {
     consignor.clickContinue()
     consignor.typePassWord()
     consignor.clickSignIn()
-    cy.wait(1000)
 })
 Cypress.Commands.add('carrierLogin', () => {
     cy.clearLocalStorage()
@@ -26,8 +25,6 @@ Cypress.Commands.add('carrierLogin', () => {
     carrier.clickContinue()
     carrier.typePassWord()
     carrier.clickSignIn()
-    cy.wait(1000)
-
 })
 Cypress.Commands.add('clickLink', (label) => {
     cy.get('a').contains(label).click()

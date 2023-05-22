@@ -8,5 +8,5 @@ export const CARRIERSLINK = Object.freeze(new Map([
     ['Danh sách xe tải', '/carriers/trucks'],
     ['Danh sách lái xe', '/carriers/drivers'],
     ['So sánh tài khoản', 'https://cargolink.vn/so-sanh-cac-loai-tai-khoan/'],
-    
+
   ]))

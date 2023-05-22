@@ -21,6 +21,13 @@ describe('Login successful', () => {
         it('Go to create request request', () => {
             data.clickToCreateRequest() 
         });
+       
+        it('Thong toan phi tai and Hinh thuc giao hang are default data', () => {
+            
+        });
+        it('Do not allow to "Thông tin bốc hàng" page when blank fileds manatory', () => {
+            
+        });
         it('Import data for contact information page', function(){
             data.contact.nameCargoTB().type(this.consignor.cargoName)
             data.contact.typeCargoSB().click()
@@ -29,9 +36,10 @@ describe('Login successful', () => {
             data.contact.unitOpts().click()
             data.contact.quantityTB().type(this.consignor.quantity)
             data.contact.weightTB().type(this.consignor.weight)
-            data.clickToContinue()
+
         });
         it('Import data for loading information page', function(){
+            data.clickToContinue()
             data.loading.loadingAddressTB().type(this.consignor.loadingAddress)
             data.loading.suggestionAddress().click()
             data.loading.locationDetailTB().type(this.consignor.locationDetail)
@@ -39,9 +47,13 @@ describe('Login successful', () => {
             data.loading.loadingDayTB().type(loadingDate.toLocaleDateString('en-GB'))
             data.loading.contactNameTB().type(this.consignor.contacName)
             data.loading.contactNumberTB().type(this.consignor.contactNumber)
-            data.clickToContinue()
+
+        });
+        it('Verify tong hang se boc are the same as thong tin don hang ', () => {
+            
         });
         it('Import data for delivery information page', function(){
+            data.clickToContinue()
             data.delivery.deliveryAddressTB().type(this.consignor.deliveryAddress)
             data.loading.suggestionAddress().click()
             data.delivery.deliveryDetailTB().type(this.consignor.deliveryDetail)
@@ -50,15 +62,23 @@ describe('Login successful', () => {
             data.delivery.deliveryDayTB().type(deliveryDate.toLocaleDateString('en-GB'))
             data.delivery.contactDeliveryTB().type(this.consignor.contactDelivery)
             data.delivery.contactDeliveryNumberTB().type(this.consignor.contactDeliveryNumber)
-            data.clickToContinue()
+
+        });
+        it('User can cancel and update information thong tin don hang', () => {
+            
         });
         it('Confirm request detail and expect fee', function(){
+            data.clickToContinue()
             data.general.validTimeTB().type('10:30')
             data.general.validDayTB().type(expireTime.toLocaleDateString('en-GB'))
             data.general.expectValueTB().type(this.consignor.expectValue)
             data.general.sendRequestBtn().click()
             data.general.okBtn().click()
         });
+        it('User can add many diem giao hang different', () => {
+            
+        });
+        
         
     })
 });

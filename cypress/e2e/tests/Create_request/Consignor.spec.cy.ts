@@ -8,20 +8,27 @@ const loadingDate = new Date(date.getTime() + 3*(1000 * 60 * 60 * 24));
 const deliveryDate = new Date(date.getTime() + 4*(1000 * 60 * 60 * 24));
 const expireTime = new Date(date.getTime() + 2*(1000 * 60 * 60 * 24));
 
-describe('Login successful', () => {
+describe('Create Consignor request', () => {
     before('Login as consignor', () => {
         cy.consignorLogin()
     })
-    context('Fill data for request', () => {
+    context('Contact information page', () => {
         beforeEach(function(){
             cy.fixture("consignor").then(consignor => {
                 this.consignor= consignor;
             })
         })
-        it('go to create request request', () => {
+        it('Click button to start create request', () => {
             data.clickToCreateRequest() 
         });
-        it('contact information page', function(){
+        it('Should not go to next page when mandatory fields empty', () => {
+            data.clickToContinue()
+            data.warning.quantityWarning().should('exist')
+            data.warning.typeCargoWarning().should('exist')
+            data.warning.unitSBWarning().should('exist')
+            data.warning.weightWarning().should('exist')
+        });
+        it('Fill data for contact page', function(){
             data.contact.nameCargoTB().type(this.consignor.cargoName)
             data.contact.typeCargoSB().click()
             data.contact.typeOpts().click()
@@ -29,9 +36,9 @@ describe('Login successful', () => {
             data.contact.unitOpts().click()
             data.contact.quantityTB().type(this.consignor.quantity)
             data.contact.weightTB().type(this.consignor.weight)
-            data.clickToContinue()
         });
         it('loading information page', function(){
+            data.clickToContinue()
             data.loading.loadingAddressTB().type(this.consignor.loadingAddress)
             data.loading.suggestionAddress().click()
             data.loading.locationDetailTB().type(this.consignor.locationDetail)
@@ -39,9 +46,13 @@ describe('Login successful', () => {
             data.loading.loadingDayTB().type(loadingDate.toLocaleDateString('en-GB'))
             data.loading.contactNameTB().type(this.consignor.contacName)
             data.loading.contactNumberTB().type(this.consignor.contactNumber)
-            data.clickToContinue()
+
+        });
+        it('Could be create new delivery point when quantity less', () => {
+            
         });
         it('delivery information page', function(){
+            data.clickToContinue()
             data.delivery.deliveryAddressTB().type(this.consignor.deliveryAddress)
             data.loading.suggestionAddress().click()
             data.delivery.deliveryDetailTB().type(this.consignor.deliveryDetail)
@@ -50,14 +61,18 @@ describe('Login successful', () => {
             data.delivery.deliveryDayTB().type(deliveryDate.toLocaleDateString('en-GB'))
             data.delivery.contactDeliveryTB().type(this.consignor.contactDelivery)
             data.delivery.contactDeliveryNumberTB().type(this.consignor.contactDeliveryNumber)
-            data.clickToContinue()
+
         });
         it('confirm request detail and expect fee', function(){
+            data.clickToContinue()
             data.general.validTimeTB().type('10:30')
             data.general.validDayTB().type(expireTime.toLocaleDateString('en-GB'))
             data.general.expectValueTB().type(this.consignor.expectValue)
             data.general.sendRequestBtn().click()
-            data.general.okBtn().click()
+            // data.general.okBtn().click()
+        });
+        it('verify request created successfully', () => {
+            
         });
         
     })

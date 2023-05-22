@@ -11,6 +11,7 @@ describe('Create Waybill then send to drivers', () => {
     describe('fill data for request', () => {
         it('Go to manage shipment', () => {
             cy.xpath('//div[@class="list-group q-list"]').children().eq(5).click()
+            cy.wait(1000)
         });
         it('Click to sort shipment with status new', () => {
             cy.get('.list-status >li').contains('Mới').click()

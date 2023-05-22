@@ -7,19 +7,19 @@ describe('Quote fee for transport', () => {
     before('login', () => {
         cy.carrierLogin()    
 })
-    context('Complete fee quote', () => {        
+    context('Complete fee quote', () => {  
+        it('Search hang tim xe theo diem boc hang', () => {
+            
+        });      
     it('Request created', () => {
         cy.xpath('//a[contains(text(),"Hàng tìm xe")]').click()
         cy.get('.truck-type').find('p').contains('Tên hàng: Xi măng test').click()
         cy.xpath('//div[contains(text(),"Có hiệu lực đến")]/following-sibling::button').click()
         cy.xpath('//input[@aria-label="Phí vận chuyển"]').type('190000')
-        cy.xpath('//div[contains(text(),"Loại xe")]/preceding-sibling::div').type('xe bán tải')
+        cy.xpath('//div[contains(text(),"Loại xe")]/preceding-sibling::div').type('xe bán tải').wait(500)
         cy.xpath('//span[contains(text(),"Xe bán tải")]').click()
-        //cy.xpath('//div[contains(text(),"Loại xe")]/preceding-sibling::div').click()
-        cy.wait(500)
         cy.xpath('//input[@aria-label="Có giá trị đến"]').type(expireTime.toLocaleString('en-GB'))
         cy.xpath('//span[contains(text(),"Gửi")]').click()
-        cy.wait(500)
     });
     it('Accept fee', () => {
         cy.consignorLogin()
@@ -28,6 +28,7 @@ describe('Quote fee for transport', () => {
         cy.xpath('//span[contains(text(),"Chấp nhận")]').click()
         cy.xpath('//span[contains(text(),"OK")]').click()
     });
+
     it('Request accepted', () => {
         cy.visit('/shippers')
         cy.xpath('//div[contains(text(),"Quản lý đơn hàng")]').click()
