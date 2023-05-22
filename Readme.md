@@ -19,4 +19,4 @@ COPY . .
 
 RUN npm install 
 
-FROM alpine:3.13.5s
+FROM alpine:3.13.5
