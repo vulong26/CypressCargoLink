@@ -11,7 +11,7 @@ pipeline {
         stage('Inital Project') {
             steps {
                 bat "npm i"
-                bat '${env.GIT_BRANCH}'
+                bat "set"
             }
         }
         stage('Run Tests') {
