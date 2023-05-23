@@ -13,7 +13,7 @@ export default defineConfig({
   e2e: {
     supportFile: false,
     defaultCommandTimeout: 5000,
-    baseUrl:'https://dev.dev.cargolink.vn',
+    baseUrl:'https://cargolink.vn',
     testIsolation: false,
     specPattern: 'cypress/e2e/tests/**/*.cy.ts',
     setupNodeEvents(on, config) {

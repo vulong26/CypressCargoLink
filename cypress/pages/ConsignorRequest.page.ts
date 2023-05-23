@@ -28,7 +28,7 @@ export class consignorRequest{
     contact = {
         createRequestBtn : () =>cy.get('#btn-create-transport-request'),
         nameCargoTB: () => cy.get('input[aria-label="Tên hàng"]'),
-        typeCargoSB: () => cy.xpath('//div[contains(text(),"Loại hàng")]//preceding-sibling::div'),
+        typeCargoSB: () => cy.xpath('//div[contains(text(),"Loại hàng")]//preceding-sibling::div/input  '),
         typeOpts: () => cy.xpath('//div[contains(text(),"Vật liệu xây dựng")]'),
         unitSB: () => cy.xpath('//div[contains(text(),"Đơn vị tính")]//preceding-sibling::div'),
         unitOpts: () => cy.xpath('//div[contains(text(),"Bao")]'),

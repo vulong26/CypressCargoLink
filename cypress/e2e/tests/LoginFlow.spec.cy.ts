@@ -5,7 +5,7 @@ import { consignorLogin } from '../../pages/ConsignorLogin.page';
 require('cypress-xpath');
 
 describe('Login flow', () => {
-    const user = new carrierLogin()
+    const carrier = new carrierLogin()
     const consignor = new consignorLogin()
     before('Clear cache', () => {
         cy.clearLocalStorage()
@@ -16,45 +16,45 @@ describe('Login flow', () => {
             cy.visit('')
         });
         it('click to login button should direct to login page', () => {
-            user.clickSignIn()
-            cy.url().should('eq', 'https://dev.dev.cargolink.vn/login')
+            carrier.clickLogin()
+            cy.url().should('eq', 'https://cargolink.vn/login')
         });
         it('should show two type-user-login options', () => {
             cy.get('.select-type-user-login').should('have.length', 2)
-            user.elements.carrierOpts().should('be.visible')
-            user.elements.consignorOpts().should('be.visible')
+            carrier.elements.carrierOpts().should('be.visible')
+            carrier.elements.consignorOpts().should('be.visible')
         });
         it('message error should display when not choose options', () => {
-            user.clickContinue()
-            user.elements.errorLogin().should('exist').and('have.text', 'Vui lòng chọn loại tài khoản bạn muốn đăng nhập')
-            user.elements.carrierOpts().click()
-            user.clickContinue()
+            carrier.clickContinue()
+            carrier.elements.errorLogin().should('exist').and('have.text', 'Vui lòng chọn loại tài khoản bạn muốn đăng nhập')
+            carrier.elements.carrierOpts().click()
+            carrier.clickContinue()
         });
         it('phone number should exist in database', () => {
-            user.elements.continueBtn().should('not.be.enabled')
-            user.elements.phoneTextBox().type('only number')
-            user.elements.phoneTextBox().should('have.text', '')
-            user.elements.phoneTextBox().type('0123456782')
-            user.clickContinue()
-            user.elements.errorLogin().should('exist').and('have.text', 'Thông tin đăng nhập không đúng.')
+            carrier.elements.continueBtn().should('not.be.enabled')
+            carrier.elements.phoneTextBox().type('only number')
+            carrier.elements.phoneTextBox().should('have.text', '')
+            carrier.elements.phoneTextBox().type('0123456782')
+            carrier.clickContinue()
+            carrier.elements.errorLogin().should('exist').and('have.text', 'Thông tin đăng nhập không đúng.')
            
         });
         it('direct to fill password when correct phone number', () => {
-            user.elements.phoneTextBox().clear()
-            user.typePhoneNumber()
-            user.clickContinue()
-            user.elements.passwordTextBox().should('exist')
+            carrier.elements.phoneTextBox().clear()
+            carrier.typePhoneNumber()
+            carrier.clickContinue()
+            carrier.elements.passwordTextBox().should('exist')
         }); 
         it('error message should exist when type incorrect number', () => {
-            user.elements.passwordTextBox().type('incorrectpw')
-            user.clickSignIn()
-            user.elements.errorLogin().should('exist').and('have.text', 'Thông tin đăng nhập không đúng.')
+            carrier.elements.passwordTextBox().type('incor#@$rectpw')
+            carrier.clickSignIn()
+            carrier.elements.errorLogin().should('exist').and('have.text', 'Thông tin đăng nhập không đúng.')
         });
         it('direct to carrier home page when type correct password', () => {
-            user.elements.passwordTextBox().clear()
-            user.typePassWord()
-            user.clickSignIn()
-            cy.url().should('eq', 'https://dev.dev.cargolink.vn/carriers/home')
+            carrier.elements.passwordTextBox().clear()
+            carrier.typePassWord()
+            carrier.clickSignIn()
+            cy.url().should('eq', 'https://cargolink.vn/carriers/home')
         });
     });
     context('Consignor', () => {
@@ -66,7 +66,7 @@ describe('Login flow', () => {
             cy.visit('/login')
         });
         it('click to login button should direct to login page', () => {
-            cy.url().should('eq', 'https://dev.dev.cargolink.vn/login')
+            cy.url().should('eq', 'https://cargolink.vn/login')
         });
         it('should show two type-user-login options', () => {
             cy.get('.select-type-user-login').should('have.length', 2)
@@ -103,7 +103,7 @@ describe('Login flow', () => {
             consignor.elements.passwordTextBox().clear()
             consignor.typePassWord()
             consignor.clickSignIn()
-            cy.url().should('eq', 'https://dev.dev.cargolink.vn/shippers/home')
+            cy.url().should('eq', 'https://cargolink.vn/shippers/home')
         });
     });
 })

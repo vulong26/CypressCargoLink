@@ -1,6 +1,6 @@
 export class carrierLogin{
     elements = {
-        loginBtn : () => cy.get('[datatest]'),
+        loginBtn : () => cy.xpath("//div[@class='c-register']/a[contains(text(),'Đăng nhập')]"),
         consignorOpts : () => cy.get('.type-user').contains('Người gửi hàng'),
         carrierOpts : () => cy.get('.type-user').contains('Người vận tải'),
         continueBtn : () => cy.xpath("//span[contains(text(),'Tiếp theo')]"),

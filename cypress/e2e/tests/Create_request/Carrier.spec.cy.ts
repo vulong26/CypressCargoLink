@@ -22,7 +22,7 @@ describe('Test scripts carrier-request', () => {
         })
         it('Click to Close button should back to homepage', () => {
             carrier.general.closeBtn().click()
-            cy.url().should('eq','https://dev.dev.cargolink.vn/carriers/home/')
+            cy.url().should('eq','https://cargolink.vn/carriers/home/')
             carrier.clickToCreateRequest()
         });
         it('All fields are mandatory', () => {
