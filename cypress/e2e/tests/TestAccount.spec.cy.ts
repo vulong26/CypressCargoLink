@@ -17,7 +17,7 @@ describe('Test data account', function(){
                 carrier.clickContinue()
                 carrier.elements.passwordTextBox().type(data.password)
                 carrier.clickSignIn()
-                cy.url().should('eq', 'https://dev.dev.cargolink.vn/carriers/home')
+                cy.url().should('eq', 'https://cargolink.vn/carriers/home')
             });
         }
         else{
@@ -28,7 +28,7 @@ describe('Test data account', function(){
                 carrier.clickContinue()
                 carrier.elements.passwordTextBox().type(data.password)
                 carrier.clickSignIn()
-                cy.url().should('eq', 'https://dev.dev.cargolink.vn/shippers/home')
+                cy.url().should('eq', 'https://cargolink.vn/shippers/home')
             });
         }
 
