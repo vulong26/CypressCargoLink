@@ -4,4 +4,4 @@ services:
     build: .
 
     command: >
-      # bash -c " npx cypress run --spec cypress/e2e/tests/LoginFlow.spec.cy.ts"
+      bash -c " npx cypress run --spec cypress/e2e/tests/LoginFlow.spec.cy.ts"
