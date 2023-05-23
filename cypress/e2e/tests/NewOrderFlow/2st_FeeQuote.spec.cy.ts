@@ -33,7 +33,7 @@ describe('Quote fee for transport', () => {
         cy.visit('/shippers')
         cy.xpath('//div[contains(text(),"Quản lý đơn hàng")]').click()
         cy.xpath('//a[contains(text(),"Đơn hàng CargoLink")]').click()
-        cy.location('href').should('equal', 'https://dev.dev.cargolink.vn/shippers/order-cgl')
+        cy.location('href').should('equal', 'https://cargolink.vn/shippers/order-cgl')
         cy.get('tbody tr').first().find('td').eq(5).should('contain.text', 'Mới')
     });
     });

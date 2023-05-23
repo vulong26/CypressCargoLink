@@ -25,17 +25,17 @@ it('header bottom should show 4 items', () => {
 });
 it('click to header bottom items should direct to correspond features ', () => {
     cy.get('#primary-menu').find('span').contains('Trang chủ').click()
-    cy.url().should('eq', 'https://dev.dev.cargolink.vn/')
+    cy.url().should('eq', 'https://cargolink.vn/')
     cy.get('#primary-menu').find('span').contains('Người gửi hàng').click()
-    cy.url().should('eq', 'https://dev.dev.cargolink.vn/cargolink-shipper')
+    cy.url().should('eq', 'https://cargolink.vn/cargolink-shipper')
     cy.wait(1000)
     cy.go('back')
     cy.get('#primary-menu').find('span').contains('Người vận tải').click()
-    cy.url().should('eq', 'https://dev.dev.cargolink.vn/cargolink-carrier')
+    cy.url().should('eq', 'https://cargolink.vn/cargolink-carrier')
     cy.wait(1000)
     cy.go('back')
     cy.get('#primary-menu').find('span').contains('Giới thiệu').click()
-    cy.url().should('eq', 'https://dev.dev.cargolink.vn/pages/about-us')
+    cy.url().should('eq', 'https://cargolink.vn/pages/about-us')
     cy.wait(1000)
     cy.go('back')
 });

@@ -11,7 +11,7 @@ describe('Verify Carriers/Consigners homepage', () => {
     context('Carriers', () => {
         it('Login as carrier', () => {
             cy.carrierLogin()
-            cy.url().should('eq', 'https://dev.dev.cargolink.vn/carriers/home')
+            cy.url().should('eq', 'https://cargolink.vn/carriers/home')
         });
         it('Side bar should have 7 items', () => {
             cy.xpath('//div[@class="list-group q-list"]').children().should('have.length', 7)
