@@ -20,7 +20,7 @@ pipeline {
         }
         stage('Push to DockerHub') {
             when {
-                branch 'BR01-Login-e2e-test'
+                branch 'Prod'
             }
             steps {
                 bat 'docker build -t vulong26/cargolink:lastest .'
